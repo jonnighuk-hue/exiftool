@@ -1,0 +1,11 @@
+version: "3.8"
+
+services:
+  exif-bot:
+    build: .
+    container_name: exif_telegram_bot
+    restart: unless-stopped
+    env_file:
+      - .env
+    environment:
+      - PYTHONUNBUFFERED=1

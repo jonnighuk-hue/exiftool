@@ -1,0 +1,35 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Environment Variables
+.env
+
+# IDE
+.vscode/
+.idea/
+*.swp
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Cloned Reference Repositories & Datasets
+Pillow/
+exif-py/
+Piexif/
+exifr/
+ExifReader/
+python-telegram-bot/
+EXIF_VIEWER/
+pyexiftool/
+exif-samples/
+kamyvision-api/
