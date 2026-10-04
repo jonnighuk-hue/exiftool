@@ -4,7 +4,6 @@ from telegram.ext import (
     Application,
     CallbackQueryHandler,
     CommandHandler,
-    ContextTypes,
     MessageHandler,
     filters,
 )
@@ -12,6 +11,7 @@ from telegram.ext import (
 from bot.config import BOT_TOKEN
 from bot.handlers import (
     button_handler,
+    hapus_data_handler,
     image_handler,
     start_handler,
 )
@@ -32,7 +32,10 @@ def main():
             " .env"
         )
         print("[!] ERROR: BOT_TOKEN tidak ditemukan di file .env")
-        print("Silakan buat file .env dan isi BOT_TOKEN=token_bot_anda (dapatkan dari @BotFather)")
+        print(
+            "Silakan buat file .env dan isi BOT_TOKEN=token_bot_anda (dapatkan"
+            " dari @BotFather)"
+        )
         sys.exit(1)
 
     # Inisialisasi Application telegram
@@ -40,6 +43,7 @@ def main():
 
     # Registrasi handlers
     app.add_handler(CommandHandler(["start", "help"], start_handler))
+    app.add_handler(CommandHandler("hapus_data", hapus_data_handler))
     app.add_handler(
         MessageHandler(filters.PHOTO | filters.Document.IMAGE, image_handler)
     )

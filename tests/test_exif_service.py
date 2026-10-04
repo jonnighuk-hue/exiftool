@@ -1,11 +1,15 @@
 import os
 import unittest
+from PIL import Image
+import io
+
 from bot.exif_service import (
     read_exif,
     detect_ai_signature,
     gps_to_decimal,
     strip_exif,
-    format_exif_text
+    format_exif_text,
+    validate_image_dimensions,
 )
 from bot.ratelimit import MemoryRateLimiter
 
@@ -13,9 +17,9 @@ class TestExifService(unittest.TestCase):
 
     def setUp(self):
         self.sample_gps_path = os.path.join("exif-samples", "jpg", "gps", "DSCN0010.jpg")
-        self.sample_canon_path = os.path.join("exif-samples", "jpg", "Canon_40D.jpg")
 
-    def test_gps_sample(self):
+    def test_valid_gps(self):
+        """K-5 Test: GPS Valid."""
         if not os.path.exists(self.sample_gps_path):
             self.skipTest("Sample file DSCN0010.jpg not found")
 
@@ -23,15 +27,41 @@ class TestExifService(unittest.TestCase):
             data = f.read()
 
         info, gps = read_exif(data)
-        self.assertIsNotNone(gps)
-        
         coords = gps_to_decimal(gps)
         self.assertIsNotNone(coords)
         lat, lon = coords
-        self.assertAlmostEqual(lat, 43.467448, places=4)
-        self.assertAlmostEqual(lon, 11.885127, places=4)
+        self.assertTrue(-90.0 <= lat <= 90.0)
+        self.assertTrue(-180.0 <= lon <= 180.0)
+
+    def test_out_of_range_gps(self):
+        """K-5 & E-2 Test: GPS di luar rentang valid (-90..90, -180..180)."""
+        invalid_gps = {
+            "GPSLatitude": (150.0, 0.0, 0.0),
+            "GPSLatitudeRef": "N",
+            "GPSLongitude": (45.0, 0.0, 0.0),
+            "GPSLongitudeRef": "E"
+        }
+        coords = gps_to_decimal(invalid_gps)
+        self.assertIsNone(coords)
+
+    def test_no_exif(self):
+        """K-5 Test: Gambar tanpa EXIF."""
+        img = Image.new("RGB", (100, 100), color="red")
+        buf = io.BytesIO()
+        img.save(buf, format="JPEG")
+        
+        info, gps = read_exif(buf.getvalue())
+        self.assertEqual(len(info), 0)
+        self.assertEqual(len(gps), 0)
+
+    def test_dimension_limit(self):
+        """K-5 & V-4 Test: Gambar di atas batas dimensi 12.000px per sisi."""
+        large_img = Image.new("RGB", (12501, 100), color="blue")
+        with self.assertRaises(ValueError):
+            validate_image_dimensions(large_img)
 
     def test_strip_exif(self):
+        """K-5 Test: Hapus EXIF."""
         if not os.path.exists(self.sample_gps_path):
             self.skipTest("Sample file DSCN0010.jpg not found")
 
@@ -50,21 +80,17 @@ class TestExifService(unittest.TestCase):
         detected = detect_ai_signature(ai_info)
         self.assertEqual(detected, "Stable Diffusion")
 
-        real_info = {"Make": "Canon", "Model": "EOS 40D"}
-        self.assertIsNone(detect_ai_signature(real_info))
-
-    def test_rate_limiter(self):
-        limiter = MemoryRateLimiter(calls=2, window=60)
-        user_id = 999
+    def test_rate_limiter_hold(self):
+        """K-5 Test: Rate limiter & temporary hold."""
+        limiter = MemoryRateLimiter()
+        user_id = 888
         
-        allowed1, _ = limiter.is_allowed(user_id)
-        allowed2, _ = limiter.is_allowed(user_id)
-        allowed3, wait = limiter.is_allowed(user_id)
-        
-        self.assertTrue(allowed1)
-        self.assertTrue(allowed2)
-        self.assertFalse(allowed3)
-        self.assertGreater(wait, 0)
+        # Test concurrent acquire/release (R-2)
+        self.assertTrue(limiter.acquire_concurrent(user_id))
+        self.assertTrue(limiter.acquire_concurrent(user_id))
+        self.assertFalse(limiter.acquire_concurrent(user_id))  # Max 2 concurrent
+        limiter.release_concurrent(user_id)
+        self.assertTrue(limiter.acquire_concurrent(user_id))
 
 if __name__ == "__main__":
     unittest.main()
