@@ -31,5 +31,6 @@ ExifReader/
 python-telegram-bot/
 EXIF_VIEWER/
 pyexiftool/
+exiftool/
 exif-samples/
 kamyvision-api/
