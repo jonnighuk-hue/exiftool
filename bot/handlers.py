@@ -10,10 +10,13 @@ from bot.exif_service import (
     format_exif_text,
     gps_to_decimal,
     read_exif,
-    strip_exif,
+    read_multi_group_metadata,
+    strip_exif_lossless,
+    strip_exif_lossy,
 )
 from bot.geo_service import reverse_geocode
 from bot.ratelimit import rate_limiter
+from benchmark.metrics import calculate_psnr, calculate_ssim
 
 logger = logging.getLogger(__name__)
 
@@ -41,20 +44,19 @@ async def download_file(message) -> tuple[bytes | None, str | None]:
 async def start_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
     """Handler untuk perintah /start dan /help."""
     user_id = update.effective_user.id
-    if rate_limiter.is_blocked(user_id):  # Aturan R-4
+    if rate_limiter.is_blocked(user_id):
         return
 
     text = (
-        "👋 *Selamat Datang di Bot EXIF Inspector & Cleaner!*\n\n"
-        "🔒 *Jaminan Privasi*: Foto Anda hanya diproses di RAM dan **tidak pernah disimpan** ke disk atau server.\n\n"
+        "👋 *Selamat Datang di Bot EXIF Inspector & Research Tool (Scopus Q1 Project)*\n\n"
+        "🔒 *Jaminan Privasi*: Foto diproses murni di RAM dan **tidak pernah disimpan**.\n\n"
+        "✨ *Fitur Riset Terintegrasi*:\n"
+        "• 🔬 **Riset A**: Metadata Survival (EXIF, GPS, XMP, ICC, C2PA, MakerNote)\n"
+        "• 🧹 **Riset B**: Analisis Residual Leakage (Lossless vs Lossy Stripping)\n"
+        "• 🤖 **Riset C**: Forensik AI & Deteksi Ketidakcocokan Logika Metadata\n\n"
         "💡 *Cara Pakai*:\n"
         "Kirim foto sebagai **File/Dokumen** (bukan foto biasa) "
-        "agar Telegram tidak menghapus metadata EXIF secara otomatis.\n\n"
-        "✨ *Fitur & Perintah Bot*:\n"
-        "• 📋 Baca metadata EXIF & Deteksi AI\n"
-        "• 📍 Tampilkan lokasi GPS di peta & alamat wilayah\n"
-        "• 🧹 Hapus EXIF & unduh gambar bersih\n"
-        "• `/hapus_data` - Hapus seluruh data pengguna & riwayat Anda"
+        "agar Telegram tidak menghapus metadata EXIF secara otomatis."
     )
     await update.message.reply_text(text, parse_mode="Markdown")
 
@@ -62,10 +64,9 @@ async def start_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
 async def hapus_data_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
     """Handler untuk perintah /hapus_data (Aturan P-6)."""
     user_id = update.effective_user.id
-    if rate_limiter.is_blocked(user_id):  # Aturan R-4
+    if rate_limiter.is_blocked(user_id):
         return
 
-    # Reset rate limit & user state
     if user_id in rate_limiter.user_minute_history:
         del rate_limiter.user_minute_history[user_id]
     if user_id in rate_limiter.user_day_history:
@@ -85,35 +86,29 @@ async def image_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
     user_id = update.effective_user.id
     is_photo = bool(msg.photo)
 
-    # Aturan R-4: Abaikan pengguna yang terblokir
     if rate_limiter.is_blocked(user_id):
         return
 
-    # Aturan R-1 & R-3: Rate Limiting
     allowed, wait_sec = rate_limiter.is_allowed(user_id)
     if not allowed:
-        await msg.reply_text(
-            f"Terlalu cepat. Coba lagi dalam {wait_sec} detik."
-        )
+        await msg.reply_text(f"Terlalu cepat. Coba lagi dalam {wait_sec} detik.")
         return
 
-    # Aturan R-2: Maksimal 2 pemrosesan bersamaan
     if not rate_limiter.acquire_concurrent(user_id):
         await msg.reply_text("Terlalu banyak pemrosesan bersamaan. Harap tunggu hingga selesai.")
         return
 
     try:
-        # Download file ke RAM (P-1 Rule)
         data, error_msg = await download_file(msg)
         if not data:
             await msg.reply_text(f"⚠️ {error_msg}")
             return
 
-        # Read EXIF
         try:
-            info, gps = read_exif(data)
+            multi_meta = read_multi_group_metadata(data)
+            info = multi_meta["raw_info"]
+            gps = multi_meta["raw_gps"]
         except ValueError as ve:
-            # Peringatan batas dimensi V-4
             await msg.reply_text(f"⚠️ {ve}")
             return
         except Exception as e:
@@ -130,8 +125,7 @@ async def image_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
             await msg.reply_text(warning_text, parse_mode="Markdown" if is_photo else None)
             return
 
-        # Deteksi Metadata AI & Perangkat
-        ai_source = detect_ai_signature(info)
+        ai_source = multi_meta["ai_signature"]
         make = info.get("Make", "")
         model = info.get("Model", "")
         device_str = f"{make} {model}".strip()
@@ -143,37 +137,34 @@ async def image_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
             header_lines.append(f"📸 *Perangkat*: `{device_str}`")
 
         header_text = ("\n".join(header_lines) + "\n\n") if header_lines else ""
-
-        # Default: Summary Mode
         exif_body = format_exif_text(info, full_mode=False)
 
-        buttons = []
+        buttons = [
+            [InlineKeyboardButton("🔬 Laporan Riset A+B+C", callback_data="act:research")],
+        ]
+
         coords = gps_to_decimal(gps)
         if coords:
-            buttons.append(InlineKeyboardButton("📍 Lokasi GPS", callback_data="act:gps"))
+            buttons.append([InlineKeyboardButton("📍 Lokasi GPS", callback_data="act:gps")])
 
-        buttons.append(InlineKeyboardButton("📄 Semua tag", callback_data="act:full"))
-        buttons.append(InlineKeyboardButton("🧹 Hapus EXIF", callback_data="act:clean"))
-
-        keyboard = []
-        row1 = [b for b in buttons if b.callback_data == "act:gps"]
-        if row1:
-            keyboard.append(row1)
-        keyboard.append([b for b in buttons if b.callback_data in ("act:full", "act:clean")])
+        buttons.append([
+            InlineKeyboardButton("📄 Semua tag", callback_data="act:full"),
+            InlineKeyboardButton("🧹 Hapus (Lossless)", callback_data="act:clean_lossless"),
+            InlineKeyboardButton("🎨 Hapus (Lossy)", callback_data="act:clean_lossy"),
+        ])
 
         await msg.reply_text(
             f"📋 *Ringkasan EXIF:*\n\n{header_text}{exif_body}",
             parse_mode="Markdown",
-            reply_markup=InlineKeyboardMarkup(keyboard),
+            reply_markup=InlineKeyboardMarkup(buttons),
             reply_to_message_id=msg.message_id,
         )
     finally:
-        # Lepaskan slot pemrosesan bersamaan (R-2)
         rate_limiter.release_concurrent(user_id)
 
 
 async def button_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
-    """Handler untuk callback tombol inline (3.3 Callback Schema)."""
+    """Handler untuk callback tombol inline (Opsi Riset A+B+C & Cleaning)."""
     query = update.callback_query
     await query.answer()
     user_id = update.effective_user.id
@@ -191,11 +182,45 @@ async def button_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
         await query.message.reply_text("Gagal mengunduh file asal.")
         return
 
-    info, gps = read_exif(data)
+    multi_meta = read_multi_group_metadata(data)
+    info = multi_meta["raw_info"]
+    gps = multi_meta["raw_gps"]
     coords = gps_to_decimal(gps)
 
-    # 3.3 Callback Schema
-    if query.data == "act:gps":
+    if query.data == "act:research":
+        # Evaluasi Opsi B: Lossless vs Lossy
+        lossless_bytes, _ = strip_exif_lossless(data)
+        lossless_psnr = calculate_psnr(data, lossless_bytes)
+        lossless_ssim = calculate_ssim(data, lossless_bytes)
+
+        lossy_bytes, _ = strip_exif_lossy(data)
+        lossy_psnr = calculate_psnr(data, lossy_bytes)
+        lossy_ssim = calculate_ssim(data, lossy_bytes)
+
+        anomalies_str = "\n".join([f"  • {a}" for a in multi_meta["anomalies"]]) if multi_meta["anomalies"] else "  • Tidak ditemukan anomali."
+
+        research_report = (
+            "🔬 *LAPORAN ANALISIS RISET MULTI-OBSERVASI (Q1 Benchmark)*\n\n"
+            "🌐 *OPSI A: Survival Metadata Multi-Group*\n"
+            f"• EXIF Count: `{multi_meta['exif_count']}` tag\n"
+            f"• GPS Status: `{'Ada' if multi_meta['has_gps'] else 'Tidak ada'}`\n"
+            f"• XMP Data: `{'Ada' if multi_meta['has_xmp'] else 'Tidak ada'}`\n"
+            f"• ICC Profile: `{'Ada' if multi_meta['has_icc_profile'] else 'Tidak ada'}`\n"
+            f"• C2PA Manifest: `{'Ada' if multi_meta['has_c2pa'] else 'Tidak ada'}`\n"
+            f"• MakerNote: `{'Ada' if multi_meta['has_makernote'] else 'Tidak ada'}`\n\n"
+
+            "🧹 *OPSI B: Benchmark Pembersihan & Kualitas Piksel*\n"
+            f"• Lossless Strip: `PSNR={lossless_psnr} dB | SSIM={lossless_ssim}` (Bit-Exact)\n"
+            f"• Lossy Strip: `PSNR={lossy_psnr} dB | SSIM={lossy_ssim}`\n\n"
+
+            "🤖 *OPSI C: Forensik AI & Anomali Ketidakcocokan*\n"
+            f"• Deteksi Generator AI: `{multi_meta['ai_signature'] or 'Tidak terdeteksi'}`\n"
+            f"• Evaluasi Anomali:\n{anomalies_str}"
+        )
+
+        await query.message.reply_text(research_report, parse_mode="Markdown")
+
+    elif query.data == "act:gps":
         if coords:
             await query.message.reply_location(latitude=coords[0], longitude=coords[1])
             address = reverse_geocode(coords[0], coords[1])
@@ -210,10 +235,11 @@ async def button_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
     elif query.data == "act:full":
         full_text = format_exif_text(info, full_mode=True)
         keyboard = [
-            [InlineKeyboardButton("📋 Ringkasan", callback_data="act:summary"), InlineKeyboardButton("🧹 Hapus EXIF", callback_data="act:clean")]
+            [InlineKeyboardButton("🔬 Laporan Riset A+B+C", callback_data="act:research")],
+            [InlineKeyboardButton("📋 Ringkasan", callback_data="act:summary"), InlineKeyboardButton("🧹 Lossless", callback_data="act:clean_lossless"), InlineKeyboardButton("🎨 Lossy", callback_data="act:clean_lossy")]
         ]
         if coords:
-            keyboard.insert(0, [InlineKeyboardButton("📍 Lokasi GPS", callback_data="act:gps")])
+            keyboard.insert(1, [InlineKeyboardButton("📍 Lokasi GPS", callback_data="act:gps")])
 
         await query.message.edit_text(
             f"📄 *Data EXIF Lengkap:*\n\n{full_text}",
@@ -224,10 +250,11 @@ async def button_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
     elif query.data == "act:summary":
         compact_text = format_exif_text(info, full_mode=False)
         keyboard = [
-            [InlineKeyboardButton("📄 Semua tag", callback_data="act:full"), InlineKeyboardButton("🧹 Hapus EXIF", callback_data="act:clean")]
+            [InlineKeyboardButton("🔬 Laporan Riset A+B+C", callback_data="act:research")],
+            [InlineKeyboardButton("📄 Semua tag", callback_data="act:full"), InlineKeyboardButton("🧹 Lossless", callback_data="act:clean_lossless"), InlineKeyboardButton("🎨 Lossy", callback_data="act:clean_lossy")]
         ]
         if coords:
-            keyboard.insert(0, [InlineKeyboardButton("📍 Lokasi GPS", callback_data="act:gps")])
+            keyboard.insert(1, [InlineKeyboardButton("📍 Lokasi GPS", callback_data="act:gps")])
 
         await query.message.edit_text(
             f"📋 *Ringkasan EXIF:*\n\n{compact_text}",
@@ -235,18 +262,19 @@ async def button_handler(update: Update, context: ContextTypes.DEFAULT_TYPE):
             reply_markup=InlineKeyboardMarkup(keyboard),
         )
 
-    elif query.data == "act:clean":
+    elif query.data in ("act:clean_lossless", "act:clean_lossy"):
+        mode = "lossless" if query.data == "act:clean_lossless" else "lossy"
         try:
-            cleaned_data, ext = strip_exif(data)
+            cleaned_data, ext = strip_exif_lossless(data) if mode == "lossless" else strip_exif_lossy(data)
             orig_filename = getattr(original.document, "file_name", "image.jpg") if original.document else "image.jpg"
             base_name = os.path.splitext(orig_filename)[0]
-            out_filename = f"clean_{base_name}.{ext}"
+            out_filename = f"clean_{mode}_{base_name}.{ext}"
 
             await query.message.reply_document(
                 document=io.BytesIO(cleaned_data),
                 filename=out_filename,
-                caption="✅ Metadata EXIF sudah dihapus.",
+                caption=f"✅ Metadata EXIF telah berhasil dihapus (Mode: {mode.title()}).",
             )
         except Exception as e:
-            logger.error(f"Gagal menghapus EXIF: {e}")
+            logger.error(f"Gagal menghapus EXIF ({mode}): {e}")
             await query.message.reply_text("Gagal menghapus metadata EXIF.")

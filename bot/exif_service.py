@@ -2,6 +2,7 @@ import io
 import logging
 from PIL import ExifTags, Image, ImageOps
 from PIL.ExifTags import GPSTAGS, TAGS
+import piexif
 
 from bot.config import MAX_IMAGE_DIMENSION
 
@@ -52,8 +53,6 @@ def validate_image_dimensions(img: Image.Image) -> None:
 def read_exif(data: bytes) -> tuple[dict, dict]:
     """Membaca metadata EXIF dan GPS dari data biner gambar (Aturan E-1 & V-4)."""
     img = Image.open(io.BytesIO(data))
-    
-    # Validasi dimensi gambar (V-4)
     validate_image_dimensions(img)
 
     exif = img.getexif()
@@ -96,8 +95,74 @@ def read_exif(data: bytes) -> tuple[dict, dict]:
     return info, gps
 
 
+def check_metadata_inconsistencies(info: dict) -> list[str]:
+    """Opsi C: Memeriksa anomali dan ketidakcocokan logika pada metadata EXIF."""
+    anomalies = []
+    make = str(info.get("Make", "")).strip().lower()
+    model = str(info.get("Model", "")).strip().lower()
+    software = str(info.get("Software", "")).strip().lower()
+
+    # 1. Anomali Perangkat (Make vs Model Mismatch)
+    if make and model:
+        known_brands = ["apple", "canon", "nikon", "sony", "samsung", "fujifilm", "panasonic", "xiaomi", "google", "huawei", "leica"]
+        matched_make_brand = [b for b in known_brands if b in make]
+        matched_model_brand = [b for b in known_brands if b in model]
+        if matched_make_brand and matched_model_brand and matched_make_brand[0] != matched_model_brand[0]:
+            anomalies.append(f"Ketidakcocokan Produsen vs Model Kamera (`{make}` vs `{model}`)")
+
+    # 2. Tag teredit oleh software manipulasi gambar
+    editing_tools = ["photoshop", "gimp", "lightroom", "canva", "snapseed", "pixlr"]
+    found_editors = [ed.title() for ed in editing_tools if ed in software]
+    if found_editors:
+        anomalies.append(f"Terdeteksi diproses dengan editor gambar (`{', '.join(found_editors)}`)")
+
+    # 3. Anomali tanpa Make/Model tetapi memiliki tag EXIF dalam jumlah banyak
+    if len(info) > 8 and not make and not model:
+        anomalies.append("Struktur EXIF kaya tag tetapi tidak memiliki informasi Produsen/Model Kamera")
+
+    return anomalies
+
+
+def read_multi_group_metadata(data: bytes) -> dict:
+    """Ekstraksi Multi-Group Metadata (Opsi A + B + C)."""
+    img = Image.open(io.BytesIO(data))
+    validate_image_dimensions(img)
+
+    info, gps = read_exif(data)
+    
+    # Check XMP & ICC Profile
+    xmp_raw = img.info.get("xmp") or img.info.get("XML:com.adobe.xmp")
+    icc_profile = img.info.get("icc_profile")
+    
+    # Check C2PA / JUMBF Manifest
+    has_c2pa = False
+    c2pa_keywords = [b"c2pa", b"jumbf", b"org.contentauthenticity"]
+    if any(kw in data.lower() for kw in c2pa_keywords):
+        has_c2pa = True
+
+    has_makernote = "MakerNote" in info or any(k for k in info.keys() if "maker" in str(k).lower())
+
+    ai_sig = detect_ai_signature(info)
+    anomalies = check_metadata_inconsistencies(info)
+
+    return {
+        "has_exif": len(info) > 0,
+        "exif_count": len(info),
+        "has_gps": len(gps) > 0,
+        "gps_coords": gps_to_decimal(gps),
+        "has_xmp": xmp_raw is not None,
+        "has_icc_profile": icc_profile is not None,
+        "has_c2pa": has_c2pa,
+        "has_makernote": has_makernote,
+        "ai_signature": ai_sig,
+        "anomalies": anomalies,
+        "raw_info": info,
+        "raw_gps": gps,
+    }
+
+
 def detect_ai_signature(info: dict) -> str | None:
-    """Memeriksa apakah ada jejak software pembuat AI di metadata EXIF."""
+    """Memeriksa apakah ada jejak software pembuat AI di metadata EXIF/XMP."""
     searchable = [
         str(info.get("Software", "")).lower(),
         str(info.get("ImageDescription", "")).lower(),
@@ -114,7 +179,7 @@ def detect_ai_signature(info: dict) -> str | None:
 
 
 def gps_to_decimal(gps: dict) -> tuple[float, float] | None:
-    """Mengonversi koordinat derajat GPS ke format desimal (lat, lon) dengan validasi E-2 (-90..90, -180..180)."""
+    """Mengonversi koordinat derajat GPS ke format desimal (lat, lon) dengan validasi E-2."""
     try:
 
         def conv(val, ref):
@@ -125,9 +190,7 @@ def gps_to_decimal(gps: dict) -> tuple[float, float] | None:
         lat = conv(gps["GPSLatitude"], gps["GPSLatitudeRef"])
         lon = conv(gps["GPSLongitude"], gps["GPSLongitudeRef"])
 
-        # Aturan E-2: Validasi rentang latitude (-90..90) & longitude (-180..180)
         if not (-90.0 <= lat <= 90.0 and -180.0 <= lon <= 180.0):
-            logger.warning(f"GPS di luar rentang valid: lat={lat}, lon={lon}")
             return None
 
         return lat, lon
@@ -135,17 +198,23 @@ def gps_to_decimal(gps: dict) -> tuple[float, float] | None:
         return None
 
 
-def strip_exif(data: bytes) -> tuple[bytes, str]:
-    """Menghapus metadata EXIF dengan aman (Aturan E-4).
+def strip_exif_lossless(data: bytes) -> tuple[bytes, str]:
+    """Pembersihan EXIF Lossless (tanpa re-encode piksel) menggunakan piexif.remove."""
+    try:
+        out = io.BytesIO()
+        piexif.remove(data, out)
+        return out.getvalue(), "jpg"
+    except Exception as e:
+        logger.warning(f"Lossless strip failed, falling back to lossy strip: {e}")
+        return strip_exif_lossy(data)
 
-    Melakukan transpose orientasi terlebih dahulu agar foto tidak terputar.
-    """
+
+def strip_exif_lossy(data: bytes) -> tuple[bytes, str]:
+    """Pembersihan EXIF Lossy (re-encode piksel) dengan ImageOps.exif_transpose."""
     img = Image.open(io.BytesIO(data))
     validate_image_dimensions(img)
 
     fmt = img.format or "JPEG"
-
-    # Koreksi rotasi berdasarkan EXIF sebelum metadata dihapus
     img = ImageOps.exif_transpose(img)
 
     out = io.BytesIO()
@@ -164,13 +233,20 @@ def strip_exif(data: bytes) -> tuple[bytes, str]:
     return out.getvalue(), filename_ext
 
 
+def strip_exif(data: bytes, mode: str = "lossless") -> tuple[bytes, str]:
+    """Fungsi utama pembersihan EXIF (mode: 'lossless' atau 'lossy')."""
+    if mode == "lossless":
+        return strip_exif_lossless(data)
+    else:
+        return strip_exif_lossy(data)
+
+
 def format_exif_text(info: dict, full_mode: bool = False) -> str:
-    """Memformat data EXIF menjadi tampilan ringkas atau lengkap (Aturan E-3 & 3.4)."""
+    """Memformat data EXIF menjadi tampilan ringkas atau lengkap."""
     if not info:
         return "Tidak ada data EXIF."
 
     if not full_mode:
-        # Mode Ringkas (Friendly Summary)
         summary_tags = [
             ("Make", "Perangkat"),
             ("Model", "Model Kamera"),
@@ -187,7 +263,7 @@ def format_exif_text(info: dict, full_mode: bool = False) -> str:
             val = info.get(tag_key)
             if val is not None:
                 if isinstance(val, bytes):
-                    if len(val) > 40:  # Aturan E-3
+                    if len(val) > 40:
                         continue
                     val = val.decode("utf-8", errors="ignore")
                 val_str = str(val).replace("\n", " ")
@@ -201,14 +277,13 @@ def format_exif_text(info: dict, full_mode: bool = False) -> str:
 
         return "\n".join(lines)
     else:
-        # Mode Lengkap (Semua Tag)
         lines = []
         for key, value in info.items():
             if isinstance(value, bytes):
-                if len(value) > 40:  # Aturan E-3: Lewati biner > 40 bytes
+                if len(value) > 40:
                     continue
                 value = value.decode("utf-8", errors="ignore")
             val_str = str(value).replace("\n", " ")
-            lines.append(f"• *{key}*: `{val_str[:80]}`")
+            lines.append(f"• *{key}*: `{str(value)[:80]}`")
 
         return "\n".join(lines)[:3500]

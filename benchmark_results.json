@@ -1,0 +1,2952 @@
+{
+  "benchmark_summary": {
+    "total_samples": 90,
+    "total_benchmark_time_seconds": 52.81,
+    "exif_presence_rate": {
+      "rate": 0.9444,
+      "wilson_95ci": [
+        0.8765,
+        0.976
+      ]
+    },
+    "gps_presence_rate": {
+      "rate": 0.2333,
+      "wilson_95ci": [
+        0.158,
+        0.3305
+      ]
+    },
+    "c2pa_detected_count": 0,
+    "ai_signatures_detected_count": 0
+  },
+  "detailed_results": [
+    {
+      "timestamp": "2026-10-04T11:50:32Z",
+      "file_name": "Canon_40D.jpg",
+      "original_metadata": {
+        "has_exif": true,
+        "exif_count": 41,
+        "has_gps": true,
+        "gps_coords": null,
+        "has_xmp": false,
+        "has_icc_profile": true,
+        "has_c2pa": false,
+        "has_makernote": false,
+        "ai_signature": null
+      },
+      "evaluation": {
+        "lossless_mode": {
+          "residual_exif_count": 0,
+          "residual_gps": false,
+          "psnr_db": Infinity,
+          "ssim": 1.0001,
+          "is_bit_exact": true
+        },
+        "lossy_mode": {
+          "residual_exif_count": 0,
+          "residual_gps": false,
+          "psnr_db": 33.38,
+          "ssim": 0.9973,
+          "is_bit_exact": false
+        }
+      },
+      "benchmark_execution_ms": 43.34
+    },
+    {
+      "timestamp": "2026-10-04T11:50:32Z",
+      "file_name": "Canon_40D_photoshop_import.jpg",
+      "original_metadata": {
+        "has_exif": true,
+        "exif_count": 10,
+        "has_gps": false,
+        "gps_coords": null,
+        "has_xmp": false,
+        "has_icc_profile": true,
+        "has_c2pa": false,
+        "has_makernote": false,
+        "ai_signature": null
+      },
+      "evaluation": {
+        "lossless_mode": {
+          "residual_exif_count": 0,
+          "residual_gps": false,
+          "psnr_db": Infinity,
+          "ssim": 1.0001,
+          "is_bit_exact": true
+        },
+        "lossy_mode": {
+          "residual_exif_count": 0,
+          "residual_gps": false,
+          "psnr_db": 30.32,
+          "ssim": 0.9919,
+          "is_bit_exact": false
+        }
+      },
+      "benchmark_execution_ms": 4.04
+    },
+    {
+      "timestamp": "2026-10-04T11:50:32Z",
+      "file_name": "Canon_DIGITAL_IXUS_400.jpg",
+      "original_metadata": {
+        "has_exif": true,
+        "exif_count": 40,
+        "has_gps": false,
+        "gps_coords": null,
+        "has_xmp": true,
+        "has_icc_profile": false,
+        "has_c2pa": false,
+        "has_makernote": true,
+        "ai_signature": null
+      },
+      "evaluation": {
+        "lossless_mode": {
+          "residual_exif_count": 1,
+          "residual_gps": false,
+          "psnr_db": Infinity,
+          "ssim": 1.0001,
+          "is_bit_exact": true
+        },
+        "lossy_mode": {
+          "residual_exif_count": 0,
+          "residual_gps": false,
+          "psnr_db": 26.92,
+          "ssim": 0.9972,
+          "is_bit_exact": false
+        }
+      },
+      "benchmark_execution_ms": 0.0
+    },
+    {
+      "timestamp": "2026-10-04T11:50:32Z",
+      "file_name": "Canon_PowerShot_S40.jpg",
+      "original_metadata": {
+        "has_exif": true,
+        "exif_count": 40,
+        "has_gps": false,
+        "gps_coords": null,
+        "has_xmp": false,
+        "has_icc_profile": false,
+        "has_c2pa": false,
+        "has_makernote": true,
+        "ai_signature": null
+      },
+      "evaluation": {
+        "lossless_mode": {
+          "residual_exif_count": 0,
+          "residual_gps": false,
+          "psnr_db": Infinity,
+          "ssim": 1.0,
+          "is_bit_exact": true
+        },
+        "lossy_mode": {
+          "residual_exif_count": 0,
+          "residual_gps": false,
+          "psnr_db": 53.85,
+          "ssim": 1.0,
+          "is_bit_exact": false
+        }
+      },
+      "benchmark_execution_ms": 69.95
+    },
+    {
+      "timestamp": "2026-10-04T11:50:36Z",
+      "file_name": "corrupted.jpg",
+      "original_metadata": {
+        "has_exif": true,
+        "exif_count": 43,
+        "has_gps": false,
+        "gps_coords": null,
+        "has_xmp": false,
+        "has_icc_profile": false,
+        "has_c2pa": false,
+        "has_makernote": true,
+        "ai_signature": null
+      },
+      "evaluation": {
+        "lossless_mode": {
+          "residual_exif_count": 0,
+          "residual_gps": false,
+          "psnr_db": Infinity,
+          "ssim": 1.0,
+          "is_bit_exact": true
+        },
+        "lossy_mode": {
+          "residual_exif_count": 0,
+          "residual_gps": false,
+          "psnr_db": 37.01,
+          "ssim": 0.9999,
+          "is_bit_exact": false
+        }
+      },
+      "benchmark_execution_ms": 3317.34
+    },
+    {
+      "timestamp": "2026-10-04T11:50:36Z",
+      "file_name": "Fujifilm_FinePix6900ZOOM.jpg",
+      "original_metadata": {
+        "has_exif": true,
+        "exif_count": 39,
+        "has_gps": false,
+        "gps_coords": null,
+        "has_xmp": false,
+        "has_icc_profile": false,
+        "has_c2pa": false,
+        "has_makernote": true,
+        "ai_signature": null
+      },
+      "evaluation": {
+        "lossless_mode": {
+          "residual_exif_count": 0,
+          "residual_gps": false,
+          "psnr_db": Infinity,
+          "ssim": 1.0001,
+          "is_bit_exact": true
+        },
+        "lossy_mode": {
+          "residual_exif_count": 0,
+          "residual_gps": false,
+          "psnr_db": 37.18,
+          "ssim": 0.9997,
+          "is_bit_exact": false
+        }
+      },
+      "benchmark_execution_ms": 11.86
+    },
+    {
+      "timestamp": "2026-10-04T11:50:36Z",
+      "file_name": "Fujifilm_FinePix_E500.jpg",
+      "original_metadata": {
+        "has_exif": true,
+        "exif_count": 48,
+        "has_gps": false,
+        "gps_coords": null,
+        "has_xmp": false,
+        "has_icc_profile": false,
+        "has_c2pa": false,
+        "has_makernote": true,
+        "ai_signature": null
+      },
+      "evaluation": {
+        "lossless_mode": {
+          "residual_exif_count": 0,
+          "residual_gps": false,
+          "psnr_db": Infinity,
+          "ssim": 1.0002,
+          "is_bit_exact": true
+        },
+        "lossy_mode": {
+          "residual_exif_count": 0,
+          "residual_gps": false,
+          "psnr_db": 44.64,
+          "ssim": 1.0001,
+          "is_bit_exact": false
+        }
+      },
+      "benchmark_execution_ms": 7.86
+    },
+    {
+      "timestamp": "2026-10-04T11:50:36Z",
+      "file_name": "Kodak_CX7530.jpg",
+      "original_metadata": {
+        "has_exif": true,
+        "exif_count": 46,
+        "has_gps": true,
+        "gps_coords": [
+          -0.37129999999999996,
+          36.056416666666664
+        ],
+        "has_xmp": false,
+        "has_icc_profile": false,
+        "has_c2pa": false,
+        "has_makernote": false,
+        "ai_signature": null
+      },
+      "evaluation": {
+        "lossless_mode": {
+          "residual_exif_count": 0,
+          "residual_gps": false,
+          "psnr_db": Infinity,
+          "ssim": 1.0001,
+          "is_bit_exact": true
+        },
+        "lossy_mode": {
+          "residual_exif_count": 0,
+          "residual_gps": false,
+          "psnr_db": 33.2,
+          "ssim": 0.9997,
+          "is_bit_exact": false
+        }
+      },
+      "benchmark_execution_ms": 7.71
+    },
+    {
+      "timestamp": "2026-10-04T11:50:36Z",
+      "file_name": "Konica_Minolta_DiMAGE_Z3.jpg",
+      "original_metadata": {
+        "has_exif": true,
+        "exif_count": 46,
+        "has_gps": false,
+        "gps_coords": null,
+        "has_xmp": false,
+        "has_icc_profile": false,
+        "has_c2pa": false,
+        "has_makernote": true,
+        "ai_signature": null
+      },
+      "evaluation": {
+        "lossless_mode": {
+          "residual_exif_count": 0,
+          "residual_gps": false,
+          "psnr_db": Infinity,
+          "ssim": 1.0001,
+          "is_bit_exact": true
+        },
+        "lossy_mode": {
+          "residual_exif_count": 0,
+          "residual_gps": false,
+          "psnr_db": 42.14,
+          "ssim": 0.9998,
+          "is_bit_exact": false
+        }
+      },
+      "benchmark_execution_ms": 7.62
+    },
+    {
+      "timestamp": "2026-10-04T11:50:36Z",
+      "file_name": "long_description.jpg",
+      "original_metadata": {
+        "has_exif": true,
+        "exif_count": 14,
+        "has_gps": false,
+        "gps_coords": null,
+        "has_xmp": true,
+        "has_icc_profile": false,
+        "has_c2pa": false,
+        "has_makernote": false,
+        "ai_signature": null
+      },
+      "evaluation": {
+        "lossless_mode": {
+          "residual_exif_count": 1,
+          "residual_gps": false,
+          "psnr_db": Infinity,
+          "ssim": 1.0001,
+          "is_bit_exact": true
+        },
+        "lossy_mode": {
+          "residual_exif_count": 0,
+          "residual_gps": false,
+          "psnr_db": 37.28,
+          "ssim": 0.9997,
+          "is_bit_exact": false
+        }
+      },
+      "benchmark_execution_ms": 6.05
+    },
+    {
+      "timestamp": "2026-10-04T11:50:36Z",
+      "file_name": "Nikon_COOLPIX_P1.jpg",
+      "original_metadata": {
+        "has_exif": true,
+        "exif_count": 46,
+        "has_gps": false,
+        "gps_coords": null,
+        "has_xmp": false,
+        "has_icc_profile": false,
+        "has_c2pa": false,
+        "has_makernote": true,
+        "ai_signature": null
+      },
+      "evaluation": {
+        "lossless_mode": {
+          "residual_exif_count": 0,
+          "residual_gps": false,
+          "psnr_db": Infinity,
+          "ssim": 1.0001,
+          "is_bit_exact": true
+        },
+        "lossy_mode": {
+          "residual_exif_count": 0,
+          "residual_gps": false,
+          "psnr_db": 34.08,
+          "ssim": 0.9993,
+          "is_bit_exact": false
+        }
+      },
+      "benchmark_execution_ms": 9.08
+    },
+    {
+      "timestamp": "2026-10-04T11:50:36Z",
+      "file_name": "Nikon_D70.jpg",
+      "original_metadata": {
+        "has_exif": true,
+        "exif_count": 25,
+        "has_gps": false,
+        "gps_coords": null,
+        "has_xmp": true,
+        "has_icc_profile": true,
+        "has_c2pa": false,
+        "has_makernote": false,
+        "ai_signature": null
+      },
+      "evaluation": {
+        "lossless_mode": {
+          "residual_exif_count": 1,
+          "residual_gps": false,
+          "psnr_db": Infinity,
+          "ssim": 1.0002,
+          "is_bit_exact": true
+        },
+        "lossy_mode": {
+          "residual_exif_count": 0,
+          "residual_gps": false,
+          "psnr_db": 31.2,
+          "ssim": 0.9996,
+          "is_bit_exact": false
+        }
+      },
+      "benchmark_execution_ms": 2.76
+    },
+    {
+      "timestamp": "2026-10-04T11:50:36Z",
+      "file_name": "Olympus_C8080WZ.jpg",
+      "original_metadata": {
+        "has_exif": true,
+        "exif_count": 45,
+        "has_gps": false,
+        "gps_coords": null,
+        "has_xmp": false,
+        "has_icc_profile": false,
+        "has_c2pa": false,
+        "has_makernote": false,
+        "ai_signature": null
+      },
+      "evaluation": {
+        "lossless_mode": {
+          "residual_exif_count": 0,
+          "residual_gps": false,
+          "psnr_db": Infinity,
+          "ssim": 1.0001,
+          "is_bit_exact": true
+        },
+        "lossy_mode": {
+          "residual_exif_count": 0,
+          "residual_gps": false,
+          "psnr_db": 40.79,
+          "ssim": 0.9998,
+          "is_bit_exact": false
+        }
+      },
+      "benchmark_execution_ms": 12.16
+    },
+    {
+      "timestamp": "2026-10-04T11:50:36Z",
+      "file_name": "PaintTool_sample.jpg",
+      "original_metadata": {
+        "has_exif": true,
+        "exif_count": 11,
+        "has_gps": false,
+        "gps_coords": null,
+        "has_xmp": false,
+        "has_icc_profile": false,
+        "has_c2pa": false,
+        "has_makernote": true,
+        "ai_signature": null
+      },
+      "evaluation": {
+        "lossless_mode": {
+          "residual_exif_count": 0,
+          "residual_gps": false,
+          "psnr_db": Infinity,
+          "ssim": 1.0001,
+          "is_bit_exact": true
+        },
+        "lossy_mode": {
+          "residual_exif_count": 0,
+          "residual_gps": false,
+          "psnr_db": 29.76,
+          "ssim": 0.9997,
+          "is_bit_exact": false
+        }
+      },
+      "benchmark_execution_ms": 0.0
+    },
+    {
+      "timestamp": "2026-10-04T11:50:36Z",
+      "file_name": "Panasonic_DMC-FZ30.jpg",
+      "original_metadata": {
+        "has_exif": true,
+        "exif_count": 45,
+        "has_gps": false,
+        "gps_coords": null,
+        "has_xmp": false,
+        "has_icc_profile": false,
+        "has_c2pa": false,
+        "has_makernote": true,
+        "ai_signature": null
+      },
+      "evaluation": {
+        "lossless_mode": {
+          "residual_exif_count": 0,
+          "residual_gps": false,
+          "psnr_db": Infinity,
+          "ssim": 1.0001,
+          "is_bit_exact": true
+        },
+        "lossy_mode": {
+          "residual_exif_count": 0,
+          "residual_gps": false,
+          "psnr_db": 36.17,
+          "ssim": 1.0,
+          "is_bit_exact": false
+        }
+      },
+      "benchmark_execution_ms": 17.94
+    },
+    {
+      "timestamp": "2026-10-04T11:50:36Z",
+      "file_name": "Pentax_K10D.jpg",
+      "original_metadata": {
+        "has_exif": true,
+        "exif_count": 35,
+        "has_gps": false,
+        "gps_coords": null,
+        "has_xmp": true,
+        "has_icc_profile": true,
+        "has_c2pa": false,
+        "has_makernote": false,
+        "ai_signature": null
+      },
+      "evaluation": {
+        "lossless_mode": {
+          "residual_exif_count": 1,
+          "residual_gps": false,
+          "psnr_db": Infinity,
+          "ssim": 1.0001,
+          "is_bit_exact": true
+        },
+        "lossy_mode": {
+          "residual_exif_count": 0,
+          "residual_gps": false,
+          "psnr_db": 34.47,
+          "ssim": 0.9997,
+          "is_bit_exact": false
+        }
+      },
+      "benchmark_execution_ms": 2.16
+    },
+    {
+      "timestamp": "2026-10-04T11:50:37Z",
+      "file_name": "Reconyx_HC500_Hyperfire.jpg",
+      "original_metadata": {
+        "has_exif": true,
+        "exif_count": 14,
+        "has_gps": false,
+        "gps_coords": null,
+        "has_xmp": false,
+        "has_icc_profile": false,
+        "has_c2pa": false,
+        "has_makernote": true,
+        "ai_signature": null
+      },
+      "evaluation": {
+        "lossless_mode": {
+          "residual_exif_count": 0,
+          "residual_gps": false,
+          "psnr_db": Infinity,
+          "ssim": 1.0,
+          "is_bit_exact": true
+        },
+        "lossy_mode": {
+          "residual_exif_count": 0,
+          "residual_gps": false,
+          "psnr_db": 39.58,
+          "ssim": 0.9999,
+          "is_bit_exact": false
+        }
+      },
+      "benchmark_execution_ms": 1016.5
+    },
+    {
+      "timestamp": "2026-10-04T11:50:37Z",
+      "file_name": "Ricoh_Caplio_RR330.jpg",
+      "original_metadata": {
+        "has_exif": true,
+        "exif_count": 30,
+        "has_gps": false,
+        "gps_coords": null,
+        "has_xmp": false,
+        "has_icc_profile": false,
+        "has_c2pa": false,
+        "has_makernote": false,
+        "ai_signature": null
+      },
+      "evaluation": {
+        "lossless_mode": {
+          "residual_exif_count": 0,
+          "residual_gps": false,
+          "psnr_db": Infinity,
+          "ssim": 1.0001,
+          "is_bit_exact": true
+        },
+        "lossy_mode": {
+          "residual_exif_count": 0,
+          "residual_gps": false,
+          "psnr_db": 31.66,
+          "ssim": 0.9997,
+          "is_bit_exact": false
+        }
+      },
+      "benchmark_execution_ms": 4.15
+    },
+    {
+      "timestamp": "2026-10-04T11:50:37Z",
+      "file_name": "Samsung_Digimax_i50_MP3.jpg",
+      "original_metadata": {
+        "has_exif": true,
+        "exif_count": 47,
+        "has_gps": false,
+        "gps_coords": null,
+        "has_xmp": false,
+        "has_icc_profile": false,
+        "has_c2pa": false,
+        "has_makernote": true,
+        "ai_signature": null
+      },
+      "evaluation": {
+        "lossless_mode": {
+          "residual_exif_count": 0,
+          "residual_gps": false,
+          "psnr_db": Infinity,
+          "ssim": 1.0001,
+          "is_bit_exact": true
+        },
+        "lossy_mode": {
+          "residual_exif_count": 0,
+          "residual_gps": false,
+          "psnr_db": 36.04,
+          "ssim": 0.9995,
+          "is_bit_exact": false
+        }
+      },
+      "benchmark_execution_ms": 7.93
+    },
+    {
+      "timestamp": "2026-10-04T11:50:37Z",
+      "file_name": "Sony_HDR-HC3.jpg",
+      "original_metadata": {
+        "has_exif": true,
+        "exif_count": 34,
+        "has_gps": false,
+        "gps_coords": null,
+        "has_xmp": false,
+        "has_icc_profile": false,
+        "has_c2pa": false,
+        "has_makernote": false,
+        "ai_signature": null
+      },
+      "evaluation": {
+        "lossless_mode": {
+          "residual_exif_count": 0,
+          "residual_gps": false,
+          "psnr_db": Infinity,
+          "ssim": 1.0002,
+          "is_bit_exact": true
+        },
+        "lossy_mode": {
+          "residual_exif_count": 0,
+          "residual_gps": false,
+          "psnr_db": 40.42,
+          "ssim": 0.9996,
+          "is_bit_exact": false
+        }
+      },
+      "benchmark_execution_ms": 7.04
+    },
+    {
+      "timestamp": "2026-10-04T11:50:37Z",
+      "file_name": "WWL_(Polaroid)_ION230.jpg",
+      "original_metadata": {
+        "has_exif": true,
+        "exif_count": 32,
+        "has_gps": false,
+        "gps_coords": null,
+        "has_xmp": false,
+        "has_icc_profile": false,
+        "has_c2pa": false,
+        "has_makernote": false,
+        "ai_signature": null
+      },
+      "evaluation": {
+        "lossless_mode": {
+          "residual_exif_count": 0,
+          "residual_gps": false,
+          "psnr_db": Infinity,
+          "ssim": 1.0001,
+          "is_bit_exact": true
+        },
+        "lossy_mode": {
+          "residual_exif_count": 0,
+          "residual_gps": false,
+          "psnr_db": 39.56,
+          "ssim": 0.9983,
+          "is_bit_exact": false
+        }
+      },
+      "benchmark_execution_ms": 7.0
+    },
+    {
+      "timestamp": "2026-10-04T11:50:37Z",
+      "file_name": "canon-ixus.jpg",
+      "original_metadata": {
+        "has_exif": true,
+        "exif_count": 36,
+        "has_gps": false,
+        "gps_coords": null,
+        "has_xmp": false,
+        "has_icc_profile": false,
+        "has_c2pa": false,
+        "has_makernote": true,
+        "ai_signature": null
+      },
+      "evaluation": {
+        "lossless_mode": {
+          "residual_exif_count": 0,
+          "residual_gps": false,
+          "psnr_db": Infinity,
+          "ssim": 1.0,
+          "is_bit_exact": true
+        },
+        "lossy_mode": {
+          "residual_exif_count": 0,
+          "residual_gps": false,
+          "psnr_db": 33.96,
+          "ssim": 0.9984,
+          "is_bit_exact": false
+        }
+      },
+      "benchmark_execution_ms": 113.62
+    },
+    {
+      "timestamp": "2026-10-04T11:50:37Z",
+      "file_name": "fujifilm-dx10.jpg",
+      "original_metadata": {
+        "has_exif": true,
+        "exif_count": 38,
+        "has_gps": false,
+        "gps_coords": null,
+        "has_xmp": false,
+        "has_icc_profile": false,
+        "has_c2pa": false,
+        "has_makernote": false,
+        "ai_signature": null
+      },
+      "evaluation": {
+        "lossless_mode": {
+          "residual_exif_count": 0,
+          "residual_gps": false,
+          "psnr_db": Infinity,
+          "ssim": 1.0,
+          "is_bit_exact": true
+        },
+        "lossy_mode": {
+          "residual_exif_count": 0,
+          "residual_gps": false,
+          "psnr_db": 40.14,
+          "ssim": 0.9999,
+          "is_bit_exact": false
+        }
+      },
+      "benchmark_execution_ms": 270.64
+    },
+    {
+      "timestamp": "2026-10-04T11:50:37Z",
+      "file_name": "fujifilm-finepix40i.jpg",
+      "original_metadata": {
+        "has_exif": true,
+        "exif_count": 39,
+        "has_gps": false,
+        "gps_coords": null,
+        "has_xmp": false,
+        "has_icc_profile": false,
+        "has_c2pa": false,
+        "has_makernote": true,
+        "ai_signature": null
+      },
+      "evaluation": {
+        "lossless_mode": {
+          "residual_exif_count": 0,
+          "residual_gps": false,
+          "psnr_db": Infinity,
+          "ssim": 1.0,
+          "is_bit_exact": true
+        },
+        "lossy_mode": {
+          "residual_exif_count": 0,
+          "residual_gps": false,
+          "psnr_db": 66.65,
+          "ssim": 1.0,
+          "is_bit_exact": false
+        }
+      },
+      "benchmark_execution_ms": 118.01
+    },
+    {
+      "timestamp": "2026-10-04T11:50:38Z",
+      "file_name": "fujifilm-mx1700.jpg",
+      "original_metadata": {
+        "has_exif": true,
+        "exif_count": 38,
+        "has_gps": false,
+        "gps_coords": null,
+        "has_xmp": false,
+        "has_icc_profile": false,
+        "has_c2pa": false,
+        "has_makernote": false,
+        "ai_signature": null
+      },
+      "evaluation": {
+        "lossless_mode": {
+          "residual_exif_count": 0,
+          "residual_gps": false,
+          "psnr_db": Infinity,
+          "ssim": 1.0,
+          "is_bit_exact": true
+        },
+        "lossy_mode": {
+          "residual_exif_count": 0,
+          "residual_gps": false,
+          "psnr_db": 34.9,
+          "ssim": 0.9823,
+          "is_bit_exact": false
+        }
+      },
+      "benchmark_execution_ms": 127.42
+    },
+    {
+      "timestamp": "2026-10-04T11:50:38Z",
+      "file_name": "kodak-dc210.jpg",
+      "original_metadata": {
+        "has_exif": true,
+        "exif_count": 25,
+        "has_gps": false,
+        "gps_coords": null,
+        "has_xmp": false,
+        "has_icc_profile": false,
+        "has_c2pa": false,
+        "has_makernote": true,
+        "ai_signature": null
+      },
+      "evaluation": {
+        "lossless_mode": {
+          "residual_exif_count": 0,
+          "residual_gps": false,
+          "psnr_db": Infinity,
+          "ssim": 1.0,
+          "is_bit_exact": true
+        },
+        "lossy_mode": {
+          "residual_exif_count": 0,
+          "residual_gps": false,
+          "psnr_db": 37.7,
+          "ssim": 0.9987,
+          "is_bit_exact": false
+        }
+      },
+      "benchmark_execution_ms": 101.43
+    },
+    {
+      "timestamp": "2026-10-04T11:50:38Z",
+      "file_name": "kodak-dc240.jpg",
+      "original_metadata": {
+        "has_exif": true,
+        "exif_count": 33,
+        "has_gps": false,
+        "gps_coords": null,
+        "has_xmp": false,
+        "has_icc_profile": false,
+        "has_c2pa": false,
+        "has_makernote": true,
+        "ai_signature": null
+      },
+      "evaluation": {
+        "lossless_mode": {
+          "residual_exif_count": 0,
+          "residual_gps": false,
+          "psnr_db": Infinity,
+          "ssim": 1.0,
+          "is_bit_exact": true
+        },
+        "lossy_mode": {
+          "residual_exif_count": 0,
+          "residual_gps": false,
+          "psnr_db": 38.14,
+          "ssim": 0.9988,
+          "is_bit_exact": false
+        }
+      },
+      "benchmark_execution_ms": 109.35
+    },
+    {
+      "timestamp": "2026-10-04T11:50:38Z",
+      "file_name": "nikon-e950.jpg",
+      "original_metadata": {
+        "has_exif": true,
+        "exif_count": 35,
+        "has_gps": false,
+        "gps_coords": null,
+        "has_xmp": false,
+        "has_icc_profile": false,
+        "has_c2pa": false,
+        "has_makernote": true,
+        "ai_signature": null
+      },
+      "evaluation": {
+        "lossless_mode": {
+          "residual_exif_count": 0,
+          "residual_gps": false,
+          "psnr_db": Infinity,
+          "ssim": 1.0,
+          "is_bit_exact": true
+        },
+        "lossy_mode": {
+          "residual_exif_count": 0,
+          "residual_gps": false,
+          "psnr_db": 33.07,
+          "ssim": 0.9985,
+          "is_bit_exact": false
+        }
+      },
+      "benchmark_execution_ms": 229.17
+    },
+    {
+      "timestamp": "2026-10-04T11:50:38Z",
+      "file_name": "olympus-c960.jpg",
+      "original_metadata": {
+        "has_exif": true,
+        "exif_count": 35,
+        "has_gps": false,
+        "gps_coords": null,
+        "has_xmp": false,
+        "has_icc_profile": false,
+        "has_c2pa": false,
+        "has_makernote": true,
+        "ai_signature": null
+      },
+      "evaluation": {
+        "lossless_mode": {
+          "residual_exif_count": 0,
+          "residual_gps": false,
+          "psnr_db": Infinity,
+          "ssim": 1.0,
+          "is_bit_exact": true
+        },
+        "lossy_mode": {
+          "residual_exif_count": 0,
+          "residual_gps": false,
+          "psnr_db": 35.49,
+          "ssim": 0.9976,
+          "is_bit_exact": false
+        }
+      },
+      "benchmark_execution_ms": 105.79
+    },
+    {
+      "timestamp": "2026-10-04T11:50:38Z",
+      "file_name": "olympus-d320l.jpg",
+      "original_metadata": {
+        "has_exif": false,
+        "exif_count": 0,
+        "has_gps": false,
+        "gps_coords": null,
+        "has_xmp": false,
+        "has_icc_profile": false,
+        "has_c2pa": false,
+        "has_makernote": false,
+        "ai_signature": null
+      },
+      "evaluation": {
+        "lossless_mode": {
+          "residual_exif_count": 0,
+          "residual_gps": false,
+          "psnr_db": Infinity,
+          "ssim": 1.0,
+          "is_bit_exact": true
+        },
+        "lossy_mode": {
+          "residual_exif_count": 0,
+          "residual_gps": false,
+          "psnr_db": 36.65,
+          "ssim": 0.9998,
+          "is_bit_exact": false
+        }
+      },
+      "benchmark_execution_ms": 93.42
+    },
+    {
+      "timestamp": "2026-10-04T11:50:38Z",
+      "file_name": "ricoh-rdc5300.jpg",
+      "original_metadata": {
+        "has_exif": true,
+        "exif_count": 30,
+        "has_gps": false,
+        "gps_coords": null,
+        "has_xmp": false,
+        "has_icc_profile": false,
+        "has_c2pa": false,
+        "has_makernote": true,
+        "ai_signature": null
+      },
+      "evaluation": {
+        "lossless_mode": {
+          "residual_exif_count": 0,
+          "residual_gps": false,
+          "psnr_db": Infinity,
+          "ssim": 1.0,
+          "is_bit_exact": true
+        },
+        "lossy_mode": {
+          "residual_exif_count": 0,
+          "residual_gps": false,
+          "psnr_db": 55.4,
+          "ssim": 1.0,
+          "is_bit_exact": false
+        }
+      },
+      "benchmark_execution_ms": 171.0
+    },
+    {
+      "timestamp": "2026-10-04T11:50:38Z",
+      "file_name": "sanyo-vpcg250.jpg",
+      "original_metadata": {
+        "has_exif": true,
+        "exif_count": 31,
+        "has_gps": false,
+        "gps_coords": null,
+        "has_xmp": false,
+        "has_icc_profile": false,
+        "has_c2pa": false,
+        "has_makernote": true,
+        "ai_signature": null
+      },
+      "evaluation": {
+        "lossless_mode": {
+          "residual_exif_count": 0,
+          "residual_gps": false,
+          "psnr_db": Infinity,
+          "ssim": 1.0,
+          "is_bit_exact": true
+        },
+        "lossy_mode": {
+          "residual_exif_count": 0,
+          "residual_gps": false,
+          "psnr_db": 37.84,
+          "ssim": 0.9996,
+          "is_bit_exact": false
+        }
+      },
+      "benchmark_execution_ms": 115.27
+    },
+    {
+      "timestamp": "2026-10-04T11:50:39Z",
+      "file_name": "sanyo-vpcsx550.jpg",
+      "original_metadata": {
+        "has_exif": true,
+        "exif_count": 33,
+        "has_gps": false,
+        "gps_coords": null,
+        "has_xmp": false,
+        "has_icc_profile": false,
+        "has_c2pa": false,
+        "has_makernote": true,
+        "ai_signature": null
+      },
+      "evaluation": {
+        "lossless_mode": {
+          "residual_exif_count": 0,
+          "residual_gps": false,
+          "psnr_db": Infinity,
+          "ssim": 1.0,
+          "is_bit_exact": true
+        },
+        "lossy_mode": {
+          "residual_exif_count": 0,
+          "residual_gps": false,
+          "psnr_db": 35.24,
+          "ssim": 0.9983,
+          "is_bit_exact": false
+        }
+      },
+      "benchmark_execution_ms": 105.89
+    },
+    {
+      "timestamp": "2026-10-04T11:50:39Z",
+      "file_name": "sony-cybershot.jpg",
+      "original_metadata": {
+        "has_exif": true,
+        "exif_count": 32,
+        "has_gps": false,
+        "gps_coords": null,
+        "has_xmp": false,
+        "has_icc_profile": false,
+        "has_c2pa": false,
+        "has_makernote": false,
+        "ai_signature": null
+      },
+      "evaluation": {
+        "lossless_mode": {
+          "residual_exif_count": 0,
+          "residual_gps": false,
+          "psnr_db": Infinity,
+          "ssim": 1.0,
+          "is_bit_exact": true
+        },
+        "lossy_mode": {
+          "residual_exif_count": 0,
+          "residual_gps": false,
+          "psnr_db": 36.56,
+          "ssim": 0.9988,
+          "is_bit_exact": false
+        }
+      },
+      "benchmark_execution_ms": 104.09
+    },
+    {
+      "timestamp": "2026-10-04T11:50:39Z",
+      "file_name": "sony-d700.jpg",
+      "original_metadata": {
+        "has_exif": true,
+        "exif_count": 26,
+        "has_gps": false,
+        "gps_coords": null,
+        "has_xmp": false,
+        "has_icc_profile": false,
+        "has_c2pa": false,
+        "has_makernote": false,
+        "ai_signature": null
+      },
+      "evaluation": {
+        "lossless_mode": {
+          "residual_exif_count": 0,
+          "residual_gps": false,
+          "psnr_db": Infinity,
+          "ssim": 1.0,
+          "is_bit_exact": true
+        },
+        "lossy_mode": {
+          "residual_exif_count": 0,
+          "residual_gps": false,
+          "psnr_db": 53.8,
+          "ssim": 1.0,
+          "is_bit_exact": false
+        }
+      },
+      "benchmark_execution_ms": 112.87
+    },
+    {
+      "timestamp": "2026-10-04T11:50:39Z",
+      "file_name": "sony-powershota5.jpg",
+      "original_metadata": {
+        "has_exif": false,
+        "exif_count": 0,
+        "has_gps": false,
+        "gps_coords": null,
+        "has_xmp": false,
+        "has_icc_profile": false,
+        "has_c2pa": false,
+        "has_makernote": false,
+        "ai_signature": null
+      },
+      "evaluation": {
+        "lossless_mode": {
+          "residual_exif_count": 0,
+          "residual_gps": false,
+          "psnr_db": Infinity,
+          "ssim": 1.0,
+          "is_bit_exact": true
+        },
+        "lossy_mode": {
+          "residual_exif_count": 0,
+          "residual_gps": false,
+          "psnr_db": 42.8,
+          "ssim": 0.9998,
+          "is_bit_exact": false
+        }
+      },
+      "benchmark_execution_ms": 264.64
+    },
+    {
+      "timestamp": "2026-10-04T11:50:39Z",
+      "file_name": "DSCN0010.jpg",
+      "original_metadata": {
+        "has_exif": true,
+        "exif_count": 46,
+        "has_gps": true,
+        "gps_coords": [
+          43.46744833333334,
+          11.885126666663888
+        ],
+        "has_xmp": true,
+        "has_icc_profile": false,
+        "has_c2pa": false,
+        "has_makernote": true,
+        "ai_signature": null
+      },
+      "evaluation": {
+        "lossless_mode": {
+          "residual_exif_count": 0,
+          "residual_gps": false,
+          "psnr_db": Infinity,
+          "ssim": 1.0,
+          "is_bit_exact": true
+        },
+        "lossy_mode": {
+          "residual_exif_count": 0,
+          "residual_gps": false,
+          "psnr_db": 29.23,
+          "ssim": 0.9908,
+          "is_bit_exact": false
+        }
+      },
+      "benchmark_execution_ms": 128.05
+    },
+    {
+      "timestamp": "2026-10-04T11:50:39Z",
+      "file_name": "DSCN0012.jpg",
+      "original_metadata": {
+        "has_exif": true,
+        "exif_count": 46,
+        "has_gps": true,
+        "gps_coords": [
+          43.46715666666389,
+          11.885394999997223
+        ],
+        "has_xmp": true,
+        "has_icc_profile": false,
+        "has_c2pa": false,
+        "has_makernote": true,
+        "ai_signature": null
+      },
+      "evaluation": {
+        "lossless_mode": {
+          "residual_exif_count": 0,
+          "residual_gps": false,
+          "psnr_db": Infinity,
+          "ssim": 1.0,
+          "is_bit_exact": true
+        },
+        "lossy_mode": {
+          "residual_exif_count": 0,
+          "residual_gps": false,
+          "psnr_db": 29.54,
+          "ssim": 0.9943,
+          "is_bit_exact": false
+        }
+      },
+      "benchmark_execution_ms": 111.87
+    },
+    {
+      "timestamp": "2026-10-04T11:50:39Z",
+      "file_name": "DSCN0021.jpg",
+      "original_metadata": {
+        "has_exif": true,
+        "exif_count": 46,
+        "has_gps": true,
+        "gps_coords": [
+          43.467081666663894,
+          11.884538333330555
+        ],
+        "has_xmp": true,
+        "has_icc_profile": false,
+        "has_c2pa": false,
+        "has_makernote": true,
+        "ai_signature": null
+      },
+      "evaluation": {
+        "lossless_mode": {
+          "residual_exif_count": 0,
+          "residual_gps": false,
+          "psnr_db": Infinity,
+          "ssim": 1.0,
+          "is_bit_exact": true
+        },
+        "lossy_mode": {
+          "residual_exif_count": 0,
+          "residual_gps": false,
+          "psnr_db": 28.33,
+          "ssim": 0.9826,
+          "is_bit_exact": false
+        }
+      },
+      "benchmark_execution_ms": 124.05
+    },
+    {
+      "timestamp": "2026-10-04T11:50:40Z",
+      "file_name": "DSCN0025.jpg",
+      "original_metadata": {
+        "has_exif": true,
+        "exif_count": 46,
+        "has_gps": true,
+        "gps_coords": [
+          43.468365,
+          11.881634999972222
+        ],
+        "has_xmp": true,
+        "has_icc_profile": false,
+        "has_c2pa": false,
+        "has_makernote": true,
+        "ai_signature": null
+      },
+      "evaluation": {
+        "lossless_mode": {
+          "residual_exif_count": 0,
+          "residual_gps": false,
+          "psnr_db": Infinity,
+          "ssim": 1.0,
+          "is_bit_exact": true
+        },
+        "lossy_mode": {
+          "residual_exif_count": 0,
+          "residual_gps": false,
+          "psnr_db": 32.77,
+          "ssim": 0.9945,
+          "is_bit_exact": false
+        }
+      },
+      "benchmark_execution_ms": 127.18
+    },
+    {
+      "timestamp": "2026-10-04T11:50:40Z",
+      "file_name": "DSCN0027.jpg",
+      "original_metadata": {
+        "has_exif": true,
+        "exif_count": 46,
+        "has_gps": true,
+        "gps_coords": [
+          43.46844166666667,
+          11.881515
+        ],
+        "has_xmp": true,
+        "has_icc_profile": false,
+        "has_c2pa": false,
+        "has_makernote": true,
+        "ai_signature": null
+      },
+      "evaluation": {
+        "lossless_mode": {
+          "residual_exif_count": 0,
+          "residual_gps": false,
+          "psnr_db": Infinity,
+          "ssim": 1.0,
+          "is_bit_exact": true
+        },
+        "lossy_mode": {
+          "residual_exif_count": 0,
+          "residual_gps": false,
+          "psnr_db": 30.88,
+          "ssim": 0.995,
+          "is_bit_exact": false
+        }
+      },
+      "benchmark_execution_ms": 115.83
+    },
+    {
+      "timestamp": "2026-10-04T11:50:40Z",
+      "file_name": "DSCN0029.jpg",
+      "original_metadata": {
+        "has_exif": true,
+        "exif_count": 46,
+        "has_gps": true,
+        "gps_coords": [
+          43.468243333330555,
+          11.880171666638889
+        ],
+        "has_xmp": true,
+        "has_icc_profile": false,
+        "has_c2pa": false,
+        "has_makernote": true,
+        "ai_signature": null
+      },
+      "evaluation": {
+        "lossless_mode": {
+          "residual_exif_count": 0,
+          "residual_gps": false,
+          "psnr_db": Infinity,
+          "ssim": 1.0,
+          "is_bit_exact": true
+        },
+        "lossy_mode": {
+          "residual_exif_count": 0,
+          "residual_gps": false,
+          "psnr_db": 32.25,
+          "ssim": 0.9959,
+          "is_bit_exact": false
+        }
+      },
+      "benchmark_execution_ms": 122.39
+    },
+    {
+      "timestamp": "2026-10-04T11:50:40Z",
+      "file_name": "DSCN0038.jpg",
+      "original_metadata": {
+        "has_exif": true,
+        "exif_count": 46,
+        "has_gps": true,
+        "gps_coords": [
+          43.46725499999722,
+          11.879213333333334
+        ],
+        "has_xmp": true,
+        "has_icc_profile": false,
+        "has_c2pa": false,
+        "has_makernote": true,
+        "ai_signature": null
+      },
+      "evaluation": {
+        "lossless_mode": {
+          "residual_exif_count": 0,
+          "residual_gps": false,
+          "psnr_db": Infinity,
+          "ssim": 1.0,
+          "is_bit_exact": true
+        },
+        "lossy_mode": {
+          "residual_exif_count": 0,
+          "residual_gps": false,
+          "psnr_db": 31.46,
+          "ssim": 0.9935,
+          "is_bit_exact": false
+        }
+      },
+      "benchmark_execution_ms": 111.69
+    },
+    {
+      "timestamp": "2026-10-04T11:50:40Z",
+      "file_name": "DSCN0040.jpg",
+      "original_metadata": {
+        "has_exif": true,
+        "exif_count": 46,
+        "has_gps": true,
+        "gps_coords": [
+          43.46601166663889,
+          11.87911166663889
+        ],
+        "has_xmp": true,
+        "has_icc_profile": false,
+        "has_c2pa": false,
+        "has_makernote": true,
+        "ai_signature": null
+      },
+      "evaluation": {
+        "lossless_mode": {
+          "residual_exif_count": 0,
+          "residual_gps": false,
+          "psnr_db": Infinity,
+          "ssim": 1.0,
+          "is_bit_exact": true
+        },
+        "lossy_mode": {
+          "residual_exif_count": 0,
+          "residual_gps": false,
+          "psnr_db": 33.17,
+          "ssim": 0.9976,
+          "is_bit_exact": false
+        }
+      },
+      "benchmark_execution_ms": 119.12
+    },
+    {
+      "timestamp": "2026-10-04T11:50:40Z",
+      "file_name": "DSCN0042.jpg",
+      "original_metadata": {
+        "has_exif": true,
+        "exif_count": 46,
+        "has_gps": true,
+        "gps_coords": [
+          43.464455,
+          11.881478333333334
+        ],
+        "has_xmp": true,
+        "has_icc_profile": false,
+        "has_c2pa": false,
+        "has_makernote": true,
+        "ai_signature": null
+      },
+      "evaluation": {
+        "lossless_mode": {
+          "residual_exif_count": 0,
+          "residual_gps": false,
+          "psnr_db": Infinity,
+          "ssim": 1.0,
+          "is_bit_exact": true
+        },
+        "lossy_mode": {
+          "residual_exif_count": 0,
+          "residual_gps": false,
+          "psnr_db": 32.38,
+          "ssim": 0.9967,
+          "is_bit_exact": false
+        }
+      },
+      "benchmark_execution_ms": 123.59
+    },
+    {
+      "timestamp": "2026-10-04T11:50:41Z",
+      "file_name": "canon_hdr_NO.jpg",
+      "original_metadata": {
+        "has_exif": true,
+        "exif_count": 47,
+        "has_gps": true,
+        "gps_coords": null,
+        "has_xmp": true,
+        "has_icc_profile": false,
+        "has_c2pa": false,
+        "has_makernote": true,
+        "ai_signature": null
+      },
+      "evaluation": {
+        "lossless_mode": {
+          "residual_exif_count": 0,
+          "residual_gps": false,
+          "psnr_db": Infinity,
+          "ssim": 1.0,
+          "is_bit_exact": true
+        },
+        "lossy_mode": {
+          "residual_exif_count": 0,
+          "residual_gps": false,
+          "psnr_db": 11.09,
+          "ssim": 0.1627,
+          "is_bit_exact": false
+        }
+      },
+      "benchmark_execution_ms": 1274.27
+    },
+    {
+      "timestamp": "2026-10-04T11:50:43Z",
+      "file_name": "canon_hdr_YES.jpg",
+      "original_metadata": {
+        "has_exif": true,
+        "exif_count": 47,
+        "has_gps": true,
+        "gps_coords": null,
+        "has_xmp": true,
+        "has_icc_profile": false,
+        "has_c2pa": false,
+        "has_makernote": true,
+        "ai_signature": null
+      },
+      "evaluation": {
+        "lossless_mode": {
+          "residual_exif_count": 0,
+          "residual_gps": false,
+          "psnr_db": Infinity,
+          "ssim": 1.0,
+          "is_bit_exact": true
+        },
+        "lossy_mode": {
+          "residual_exif_count": 0,
+          "residual_gps": false,
+          "psnr_db": 10.72,
+          "ssim": 0.1425,
+          "is_bit_exact": false
+        }
+      },
+      "benchmark_execution_ms": 1304.56
+    },
+    {
+      "timestamp": "2026-10-04T11:50:45Z",
+      "file_name": "iphone_hdr_NO.jpg",
+      "original_metadata": {
+        "has_exif": true,
+        "exif_count": 45,
+        "has_gps": true,
+        "gps_coords": [
+          40.44697222222222,
+          -3.724752777777778
+        ],
+        "has_xmp": false,
+        "has_icc_profile": false,
+        "has_c2pa": false,
+        "has_makernote": true,
+        "ai_signature": null
+      },
+      "evaluation": {
+        "lossless_mode": {
+          "residual_exif_count": 0,
+          "residual_gps": false,
+          "psnr_db": Infinity,
+          "ssim": 1.0,
+          "is_bit_exact": true
+        },
+        "lossy_mode": {
+          "residual_exif_count": 0,
+          "residual_gps": false,
+          "psnr_db": 42.04,
+          "ssim": 0.9997,
+          "is_bit_exact": false
+        }
+      },
+      "benchmark_execution_ms": 2550.16
+    },
+    {
+      "timestamp": "2026-10-04T11:50:48Z",
+      "file_name": "iphone_hdr_YES.jpg",
+      "original_metadata": {
+        "has_exif": true,
+        "exif_count": 45,
+        "has_gps": true,
+        "gps_coords": [
+          40.44697222222222,
+          -3.724752777777778
+        ],
+        "has_xmp": false,
+        "has_icc_profile": false,
+        "has_c2pa": false,
+        "has_makernote": true,
+        "ai_signature": null
+      },
+      "evaluation": {
+        "lossless_mode": {
+          "residual_exif_count": 0,
+          "residual_gps": false,
+          "psnr_db": Infinity,
+          "ssim": 1.0,
+          "is_bit_exact": true
+        },
+        "lossy_mode": {
+          "residual_exif_count": 0,
+          "residual_gps": false,
+          "psnr_db": 42.12,
+          "ssim": 0.9997,
+          "is_bit_exact": false
+        }
+      },
+      "benchmark_execution_ms": 2566.02
+    },
+    {
+      "timestamp": "2026-10-04T11:50:48Z",
+      "file_name": "image00971.jpg",
+      "original_metadata": {
+        "has_exif": true,
+        "exif_count": 1,
+        "has_gps": false,
+        "gps_coords": null,
+        "has_xmp": true,
+        "has_icc_profile": false,
+        "has_c2pa": false,
+        "has_makernote": false,
+        "ai_signature": null
+      },
+      "evaluation": {
+        "lossless_mode": {
+          "residual_exif_count": 1,
+          "residual_gps": false,
+          "psnr_db": Infinity,
+          "ssim": 1.0,
+          "is_bit_exact": true
+        },
+        "lossy_mode": {
+          "residual_exif_count": 0,
+          "residual_gps": false,
+          "psnr_db": 31.74,
+          "ssim": 0.9992,
+          "is_bit_exact": false
+        }
+      },
+      "benchmark_execution_ms": 67.64
+    },
+    {
+      "timestamp": "2026-10-04T11:50:48Z",
+      "file_name": "image01088.jpg",
+      "original_metadata": {
+        "has_exif": true,
+        "exif_count": 1,
+        "has_gps": false,
+        "gps_coords": null,
+        "has_xmp": true,
+        "has_icc_profile": false,
+        "has_c2pa": false,
+        "has_makernote": false,
+        "ai_signature": null
+      },
+      "evaluation": {
+        "lossless_mode": {
+          "residual_exif_count": 1,
+          "residual_gps": false,
+          "psnr_db": Infinity,
+          "ssim": 1.0,
+          "is_bit_exact": true
+        },
+        "lossy_mode": {
+          "residual_exif_count": 0,
+          "residual_gps": false,
+          "psnr_db": 28.67,
+          "ssim": 0.9978,
+          "is_bit_exact": false
+        }
+      },
+      "benchmark_execution_ms": 16.12
+    },
+    {
+      "timestamp": "2026-10-04T11:50:48Z",
+      "file_name": "image01137.jpg",
+      "original_metadata": {
+        "has_exif": true,
+        "exif_count": 1,
+        "has_gps": false,
+        "gps_coords": null,
+        "has_xmp": true,
+        "has_icc_profile": false,
+        "has_c2pa": false,
+        "has_makernote": false,
+        "ai_signature": null
+      },
+      "evaluation": {
+        "lossless_mode": {
+          "residual_exif_count": 1,
+          "residual_gps": false,
+          "psnr_db": Infinity,
+          "ssim": 1.0002,
+          "is_bit_exact": true
+        },
+        "lossy_mode": {
+          "residual_exif_count": 0,
+          "residual_gps": false,
+          "psnr_db": 25.43,
+          "ssim": 0.9919,
+          "is_bit_exact": false
+        }
+      },
+      "benchmark_execution_ms": 16.15
+    },
+    {
+      "timestamp": "2026-10-04T11:50:48Z",
+      "file_name": "image01551.jpg",
+      "original_metadata": {
+        "has_exif": false,
+        "exif_count": 0,
+        "has_gps": false,
+        "gps_coords": null,
+        "has_xmp": true,
+        "has_icc_profile": false,
+        "has_c2pa": false,
+        "has_makernote": false,
+        "ai_signature": null
+      },
+      "evaluation": {
+        "lossless_mode": {
+          "residual_exif_count": 0,
+          "residual_gps": false,
+          "psnr_db": Infinity,
+          "ssim": 1.0003,
+          "is_bit_exact": true
+        },
+        "lossy_mode": {
+          "residual_exif_count": 0,
+          "residual_gps": false,
+          "psnr_db": 25.51,
+          "ssim": 0.9964,
+          "is_bit_exact": false
+        }
+      },
+      "benchmark_execution_ms": 0.0
+    },
+    {
+      "timestamp": "2026-10-04T11:50:48Z",
+      "file_name": "image01713.jpg",
+      "original_metadata": {
+        "has_exif": true,
+        "exif_count": 1,
+        "has_gps": false,
+        "gps_coords": null,
+        "has_xmp": true,
+        "has_icc_profile": false,
+        "has_c2pa": false,
+        "has_makernote": false,
+        "ai_signature": null
+      },
+      "evaluation": {
+        "lossless_mode": {
+          "residual_exif_count": 1,
+          "residual_gps": false,
+          "psnr_db": Infinity,
+          "ssim": 1.0,
+          "is_bit_exact": true
+        },
+        "lossy_mode": {
+          "residual_exif_count": 0,
+          "residual_gps": false,
+          "psnr_db": 49.44,
+          "ssim": 0.9967,
+          "is_bit_exact": false
+        }
+      },
+      "benchmark_execution_ms": 15.83
+    },
+    {
+      "timestamp": "2026-10-04T11:50:48Z",
+      "file_name": "image01980.jpg",
+      "original_metadata": {
+        "has_exif": false,
+        "exif_count": 0,
+        "has_gps": false,
+        "gps_coords": null,
+        "has_xmp": true,
+        "has_icc_profile": false,
+        "has_c2pa": false,
+        "has_makernote": false,
+        "ai_signature": null
+      },
+      "evaluation": {
+        "lossless_mode": {
+          "residual_exif_count": 0,
+          "residual_gps": false,
+          "psnr_db": Infinity,
+          "ssim": 1.0001,
+          "is_bit_exact": true
+        },
+        "lossy_mode": {
+          "residual_exif_count": 0,
+          "residual_gps": false,
+          "psnr_db": 25.8,
+          "ssim": 0.9979,
+          "is_bit_exact": false
+        }
+      },
+      "benchmark_execution_ms": 2.26
+    },
+    {
+      "timestamp": "2026-10-04T11:50:48Z",
+      "file_name": "image02206.jpg",
+      "original_metadata": {
+        "has_exif": false,
+        "exif_count": 0,
+        "has_gps": false,
+        "gps_coords": null,
+        "has_xmp": true,
+        "has_icc_profile": false,
+        "has_c2pa": false,
+        "has_makernote": false,
+        "ai_signature": null
+      },
+      "evaluation": {
+        "lossless_mode": {
+          "residual_exif_count": 0,
+          "residual_gps": false,
+          "psnr_db": Infinity,
+          "ssim": 1.0002,
+          "is_bit_exact": true
+        },
+        "lossy_mode": {
+          "residual_exif_count": 0,
+          "residual_gps": false,
+          "psnr_db": 34.13,
+          "ssim": 0.9991,
+          "is_bit_exact": false
+        }
+      },
+      "benchmark_execution_ms": 9.82
+    },
+    {
+      "timestamp": "2026-10-04T11:50:51Z",
+      "file_name": "HMD_Nokia_8.3_5G.jpg",
+      "original_metadata": {
+        "has_exif": true,
+        "exif_count": 19,
+        "has_gps": true,
+        "gps_coords": [
+          60.146705555555556,
+          24.90677222222222
+        ],
+        "has_xmp": false,
+        "has_icc_profile": false,
+        "has_c2pa": false,
+        "has_makernote": false,
+        "ai_signature": null
+      },
+      "evaluation": {
+        "lossless_mode": {
+          "residual_exif_count": 0,
+          "residual_gps": false,
+          "psnr_db": Infinity,
+          "ssim": 1.0,
+          "is_bit_exact": true
+        },
+        "lossy_mode": {
+          "residual_exif_count": 0,
+          "residual_gps": false,
+          "psnr_db": 40.52,
+          "ssim": 0.9984,
+          "is_bit_exact": false
+        }
+      },
+      "benchmark_execution_ms": 3008.35
+    },
+    {
+      "timestamp": "2026-10-04T11:50:57Z",
+      "file_name": "HMD_Nokia_8.3_5G_hdr.jpg",
+      "original_metadata": {
+        "has_exif": true,
+        "exif_count": 19,
+        "has_gps": true,
+        "gps_coords": [
+          60.99138055555556,
+          24.42419166666667
+        ],
+        "has_xmp": false,
+        "has_icc_profile": false,
+        "has_c2pa": false,
+        "has_makernote": false,
+        "ai_signature": null
+      },
+      "evaluation": {
+        "lossless_mode": {
+          "residual_exif_count": 0,
+          "residual_gps": false,
+          "psnr_db": Infinity,
+          "ssim": 1.0,
+          "is_bit_exact": true
+        },
+        "lossy_mode": {
+          "residual_exif_count": 0,
+          "residual_gps": false,
+          "psnr_db": 10.21,
+          "ssim": 0.1029,
+          "is_bit_exact": false
+        }
+      },
+      "benchmark_execution_ms": 6481.38
+    },
+    {
+      "timestamp": "2026-10-04T11:51:00Z",
+      "file_name": "jolla.jpg",
+      "original_metadata": {
+        "has_exif": true,
+        "exif_count": 22,
+        "has_gps": false,
+        "gps_coords": null,
+        "has_xmp": true,
+        "has_icc_profile": false,
+        "has_c2pa": false,
+        "has_makernote": false,
+        "ai_signature": null
+      },
+      "evaluation": {
+        "lossless_mode": {
+          "residual_exif_count": 1,
+          "residual_gps": false,
+          "psnr_db": Infinity,
+          "ssim": 1.0,
+          "is_bit_exact": true
+        },
+        "lossy_mode": {
+          "residual_exif_count": 0,
+          "residual_gps": false,
+          "psnr_db": 41.62,
+          "ssim": 0.9997,
+          "is_bit_exact": false
+        }
+      },
+      "benchmark_execution_ms": 2404.46
+    },
+    {
+      "timestamp": "2026-10-04T11:51:00Z",
+      "file_name": "landscape_1.jpg",
+      "original_metadata": {
+        "has_exif": true,
+        "exif_count": 5,
+        "has_gps": false,
+        "gps_coords": null,
+        "has_xmp": true,
+        "has_icc_profile": false,
+        "has_c2pa": false,
+        "has_makernote": false,
+        "ai_signature": null
+      },
+      "evaluation": {
+        "lossless_mode": {
+          "residual_exif_count": 0,
+          "residual_gps": false,
+          "psnr_db": Infinity,
+          "ssim": 1.0,
+          "is_bit_exact": true
+        },
+        "lossy_mode": {
+          "residual_exif_count": 0,
+          "residual_gps": false,
+          "psnr_db": 30.33,
+          "ssim": 0.9961,
+          "is_bit_exact": false
+        }
+      },
+      "benchmark_execution_ms": 118.39
+    },
+    {
+      "timestamp": "2026-10-04T11:51:00Z",
+      "file_name": "landscape_2.jpg",
+      "original_metadata": {
+        "has_exif": true,
+        "exif_count": 7,
+        "has_gps": false,
+        "gps_coords": null,
+        "has_xmp": false,
+        "has_icc_profile": true,
+        "has_c2pa": false,
+        "has_makernote": false,
+        "ai_signature": null
+      },
+      "evaluation": {
+        "lossless_mode": {
+          "residual_exif_count": 0,
+          "residual_gps": false,
+          "psnr_db": Infinity,
+          "ssim": 1.0,
+          "is_bit_exact": true
+        },
+        "lossy_mode": {
+          "residual_exif_count": 0,
+          "residual_gps": false,
+          "psnr_db": 11.25,
+          "ssim": 0.4294,
+          "is_bit_exact": false
+        }
+      },
+      "benchmark_execution_ms": 195.22
+    },
+    {
+      "timestamp": "2026-10-04T11:51:00Z",
+      "file_name": "landscape_3.jpg",
+      "original_metadata": {
+        "has_exif": true,
+        "exif_count": 7,
+        "has_gps": false,
+        "gps_coords": null,
+        "has_xmp": false,
+        "has_icc_profile": true,
+        "has_c2pa": false,
+        "has_makernote": false,
+        "ai_signature": null
+      },
+      "evaluation": {
+        "lossless_mode": {
+          "residual_exif_count": 0,
+          "residual_gps": false,
+          "psnr_db": Infinity,
+          "ssim": 1.0,
+          "is_bit_exact": true
+        },
+        "lossy_mode": {
+          "residual_exif_count": 0,
+          "residual_gps": false,
+          "psnr_db": 9.06,
+          "ssim": 0.04,
+          "is_bit_exact": false
+        }
+      },
+      "benchmark_execution_ms": 102.92
+    },
+    {
+      "timestamp": "2026-10-04T11:51:00Z",
+      "file_name": "landscape_4.jpg",
+      "original_metadata": {
+        "has_exif": true,
+        "exif_count": 7,
+        "has_gps": false,
+        "gps_coords": null,
+        "has_xmp": false,
+        "has_icc_profile": true,
+        "has_c2pa": false,
+        "has_makernote": false,
+        "ai_signature": null
+      },
+      "evaluation": {
+        "lossless_mode": {
+          "residual_exif_count": 0,
+          "residual_gps": false,
+          "psnr_db": Infinity,
+          "ssim": 1.0,
+          "is_bit_exact": true
+        },
+        "lossy_mode": {
+          "residual_exif_count": 0,
+          "residual_gps": false,
+          "psnr_db": 9.42,
+          "ssim": 0.111,
+          "is_bit_exact": false
+        }
+      },
+      "benchmark_execution_ms": 102.01
+    },
+    {
+      "timestamp": "2026-10-04T11:51:00Z",
+      "file_name": "landscape_5.jpg",
+      "original_metadata": {
+        "has_exif": true,
+        "exif_count": 7,
+        "has_gps": false,
+        "gps_coords": null,
+        "has_xmp": false,
+        "has_icc_profile": true,
+        "has_c2pa": false,
+        "has_makernote": false,
+        "ai_signature": null
+      },
+      "evaluation": {
+        "lossless_mode": {
+          "residual_exif_count": 0,
+          "residual_gps": false,
+          "psnr_db": Infinity,
+          "ssim": 1.0,
+          "is_bit_exact": true
+        },
+        "lossy_mode": {
+          "residual_exif_count": 0,
+          "residual_gps": false,
+          "psnr_db": 8.25,
+          "ssim": -0.1156,
+          "is_bit_exact": false
+        }
+      },
+      "benchmark_execution_ms": 127.43
+    },
+    {
+      "timestamp": "2026-10-04T11:51:01Z",
+      "file_name": "landscape_6.jpg",
+      "original_metadata": {
+        "has_exif": true,
+        "exif_count": 7,
+        "has_gps": false,
+        "gps_coords": null,
+        "has_xmp": false,
+        "has_icc_profile": true,
+        "has_c2pa": false,
+        "has_makernote": false,
+        "ai_signature": null
+      },
+      "evaluation": {
+        "lossless_mode": {
+          "residual_exif_count": 0,
+          "residual_gps": false,
+          "psnr_db": Infinity,
+          "ssim": 1.0,
+          "is_bit_exact": true
+        },
+        "lossy_mode": {
+          "residual_exif_count": 0,
+          "residual_gps": false,
+          "psnr_db": 8.1,
+          "ssim": -0.1592,
+          "is_bit_exact": false
+        }
+      },
+      "benchmark_execution_ms": 122.5
+    },
+    {
+      "timestamp": "2026-10-04T11:51:01Z",
+      "file_name": "landscape_7.jpg",
+      "original_metadata": {
+        "has_exif": true,
+        "exif_count": 7,
+        "has_gps": false,
+        "gps_coords": null,
+        "has_xmp": false,
+        "has_icc_profile": true,
+        "has_c2pa": false,
+        "has_makernote": false,
+        "ai_signature": null
+      },
+      "evaluation": {
+        "lossless_mode": {
+          "residual_exif_count": 0,
+          "residual_gps": false,
+          "psnr_db": Infinity,
+          "ssim": 1.0,
+          "is_bit_exact": true
+        },
+        "lossy_mode": {
+          "residual_exif_count": 0,
+          "residual_gps": false,
+          "psnr_db": 8.31,
+          "ssim": -0.1044,
+          "is_bit_exact": false
+        }
+      },
+      "benchmark_execution_ms": 122.26
+    },
+    {
+      "timestamp": "2026-10-04T11:51:01Z",
+      "file_name": "landscape_8.jpg",
+      "original_metadata": {
+        "has_exif": true,
+        "exif_count": 7,
+        "has_gps": false,
+        "gps_coords": null,
+        "has_xmp": false,
+        "has_icc_profile": true,
+        "has_c2pa": false,
+        "has_makernote": false,
+        "ai_signature": null
+      },
+      "evaluation": {
+        "lossless_mode": {
+          "residual_exif_count": 0,
+          "residual_gps": false,
+          "psnr_db": Infinity,
+          "ssim": 1.0,
+          "is_bit_exact": true
+        },
+        "lossy_mode": {
+          "residual_exif_count": 0,
+          "residual_gps": false,
+          "psnr_db": 8.1,
+          "ssim": -0.1548,
+          "is_bit_exact": false
+        }
+      },
+      "benchmark_execution_ms": 126.62
+    },
+    {
+      "timestamp": "2026-10-04T11:51:01Z",
+      "file_name": "portrait_1.jpg",
+      "original_metadata": {
+        "has_exif": true,
+        "exif_count": 5,
+        "has_gps": false,
+        "gps_coords": null,
+        "has_xmp": true,
+        "has_icc_profile": false,
+        "has_c2pa": false,
+        "has_makernote": false,
+        "ai_signature": null
+      },
+      "evaluation": {
+        "lossless_mode": {
+          "residual_exif_count": 0,
+          "residual_gps": false,
+          "psnr_db": Infinity,
+          "ssim": 1.0,
+          "is_bit_exact": true
+        },
+        "lossy_mode": {
+          "residual_exif_count": 0,
+          "residual_gps": false,
+          "psnr_db": 31.03,
+          "ssim": 0.9954,
+          "is_bit_exact": false
+        }
+      },
+      "benchmark_execution_ms": 110.95
+    },
+    {
+      "timestamp": "2026-10-04T11:51:01Z",
+      "file_name": "portrait_2.jpg",
+      "original_metadata": {
+        "has_exif": true,
+        "exif_count": 7,
+        "has_gps": false,
+        "gps_coords": null,
+        "has_xmp": false,
+        "has_icc_profile": true,
+        "has_c2pa": false,
+        "has_makernote": false,
+        "ai_signature": null
+      },
+      "evaluation": {
+        "lossless_mode": {
+          "residual_exif_count": 0,
+          "residual_gps": false,
+          "psnr_db": Infinity,
+          "ssim": 1.0,
+          "is_bit_exact": true
+        },
+        "lossy_mode": {
+          "residual_exif_count": 0,
+          "residual_gps": false,
+          "psnr_db": 12.59,
+          "ssim": 0.5285,
+          "is_bit_exact": false
+        }
+      },
+      "benchmark_execution_ms": 106.6
+    },
+    {
+      "timestamp": "2026-10-04T11:51:01Z",
+      "file_name": "portrait_3.jpg",
+      "original_metadata": {
+        "has_exif": true,
+        "exif_count": 7,
+        "has_gps": false,
+        "gps_coords": null,
+        "has_xmp": false,
+        "has_icc_profile": true,
+        "has_c2pa": false,
+        "has_makernote": false,
+        "ai_signature": null
+      },
+      "evaluation": {
+        "lossless_mode": {
+          "residual_exif_count": 0,
+          "residual_gps": false,
+          "psnr_db": Infinity,
+          "ssim": 1.0,
+          "is_bit_exact": true
+        },
+        "lossy_mode": {
+          "residual_exif_count": 0,
+          "residual_gps": false,
+          "psnr_db": 10.74,
+          "ssim": 0.3206,
+          "is_bit_exact": false
+        }
+      },
+      "benchmark_execution_ms": 110.49
+    },
+    {
+      "timestamp": "2026-10-04T11:51:01Z",
+      "file_name": "portrait_4.jpg",
+      "original_metadata": {
+        "has_exif": true,
+        "exif_count": 7,
+        "has_gps": false,
+        "gps_coords": null,
+        "has_xmp": false,
+        "has_icc_profile": true,
+        "has_c2pa": false,
+        "has_makernote": false,
+        "ai_signature": null
+      },
+      "evaluation": {
+        "lossless_mode": {
+          "residual_exif_count": 0,
+          "residual_gps": false,
+          "psnr_db": Infinity,
+          "ssim": 1.0,
+          "is_bit_exact": true
+        },
+        "lossy_mode": {
+          "residual_exif_count": 0,
+          "residual_gps": false,
+          "psnr_db": 11.27,
+          "ssim": 0.3979,
+          "is_bit_exact": false
+        }
+      },
+      "benchmark_execution_ms": 125.13
+    },
+    {
+      "timestamp": "2026-10-04T11:51:01Z",
+      "file_name": "portrait_5.jpg",
+      "original_metadata": {
+        "has_exif": true,
+        "exif_count": 7,
+        "has_gps": false,
+        "gps_coords": null,
+        "has_xmp": false,
+        "has_icc_profile": true,
+        "has_c2pa": false,
+        "has_makernote": false,
+        "ai_signature": null
+      },
+      "evaluation": {
+        "lossless_mode": {
+          "residual_exif_count": 0,
+          "residual_gps": false,
+          "psnr_db": Infinity,
+          "ssim": 1.0,
+          "is_bit_exact": true
+        },
+        "lossy_mode": {
+          "residual_exif_count": 0,
+          "residual_gps": false,
+          "psnr_db": 8.67,
+          "ssim": -0.2044,
+          "is_bit_exact": false
+        }
+      },
+      "benchmark_execution_ms": 129.24
+    },
+    {
+      "timestamp": "2026-10-04T11:51:02Z",
+      "file_name": "portrait_6.jpg",
+      "original_metadata": {
+        "has_exif": true,
+        "exif_count": 7,
+        "has_gps": false,
+        "gps_coords": null,
+        "has_xmp": false,
+        "has_icc_profile": true,
+        "has_c2pa": false,
+        "has_makernote": false,
+        "ai_signature": null
+      },
+      "evaluation": {
+        "lossless_mode": {
+          "residual_exif_count": 0,
+          "residual_gps": false,
+          "psnr_db": Infinity,
+          "ssim": 1.0,
+          "is_bit_exact": true
+        },
+        "lossy_mode": {
+          "residual_exif_count": 0,
+          "residual_gps": false,
+          "psnr_db": 8.56,
+          "ssim": -0.2327,
+          "is_bit_exact": false
+        }
+      },
+      "benchmark_execution_ms": 124.39
+    },
+    {
+      "timestamp": "2026-10-04T11:51:02Z",
+      "file_name": "portrait_7.jpg",
+      "original_metadata": {
+        "has_exif": true,
+        "exif_count": 7,
+        "has_gps": false,
+        "gps_coords": null,
+        "has_xmp": false,
+        "has_icc_profile": true,
+        "has_c2pa": false,
+        "has_makernote": false,
+        "ai_signature": null
+      },
+      "evaluation": {
+        "lossless_mode": {
+          "residual_exif_count": 0,
+          "residual_gps": false,
+          "psnr_db": Infinity,
+          "ssim": 1.0,
+          "is_bit_exact": true
+        },
+        "lossy_mode": {
+          "residual_exif_count": 0,
+          "residual_gps": false,
+          "psnr_db": 8.9,
+          "ssim": -0.1693,
+          "is_bit_exact": false
+        }
+      },
+      "benchmark_execution_ms": 137.61
+    },
+    {
+      "timestamp": "2026-10-04T11:51:02Z",
+      "file_name": "portrait_8.jpg",
+      "original_metadata": {
+        "has_exif": true,
+        "exif_count": 7,
+        "has_gps": false,
+        "gps_coords": null,
+        "has_xmp": false,
+        "has_icc_profile": true,
+        "has_c2pa": false,
+        "has_makernote": false,
+        "ai_signature": null
+      },
+      "evaluation": {
+        "lossless_mode": {
+          "residual_exif_count": 0,
+          "residual_gps": false,
+          "psnr_db": Infinity,
+          "ssim": 1.0,
+          "is_bit_exact": true
+        },
+        "lossy_mode": {
+          "residual_exif_count": 0,
+          "residual_gps": false,
+          "psnr_db": 8.56,
+          "ssim": -0.2341,
+          "is_bit_exact": false
+        }
+      },
+      "benchmark_execution_ms": 122.31
+    },
+    {
+      "timestamp": "2026-10-04T11:51:02Z",
+      "file_name": "11-tests.jpg",
+      "original_metadata": {
+        "has_exif": true,
+        "exif_count": 37,
+        "has_gps": false,
+        "gps_coords": null,
+        "has_xmp": false,
+        "has_icc_profile": false,
+        "has_c2pa": false,
+        "has_makernote": true,
+        "ai_signature": null
+      },
+      "evaluation": {
+        "lossless_mode": {
+          "residual_exif_count": 0,
+          "residual_gps": false,
+          "psnr_db": Infinity,
+          "ssim": 1.0,
+          "is_bit_exact": true
+        },
+        "lossy_mode": {
+          "residual_exif_count": 0,
+          "residual_gps": false,
+          "psnr_db": 57.06,
+          "ssim": 1.0,
+          "is_bit_exact": false
+        }
+      },
+      "benchmark_execution_ms": 276.1
+    },
+    {
+      "timestamp": "2026-10-04T11:51:03Z",
+      "file_name": "22-canon_tags.jpg",
+      "original_metadata": {
+        "has_exif": true,
+        "exif_count": 40,
+        "has_gps": false,
+        "gps_coords": null,
+        "has_xmp": false,
+        "has_icc_profile": false,
+        "has_c2pa": false,
+        "has_makernote": true,
+        "ai_signature": null
+      },
+      "evaluation": {
+        "lossless_mode": {
+          "residual_exif_count": 0,
+          "residual_gps": false,
+          "psnr_db": Infinity,
+          "ssim": 1.0,
+          "is_bit_exact": true
+        },
+        "lossy_mode": {
+          "residual_exif_count": 0,
+          "residual_gps": false,
+          "psnr_db": 39.97,
+          "ssim": 0.9996,
+          "is_bit_exact": false
+        }
+      },
+      "benchmark_execution_ms": 539.16
+    },
+    {
+      "timestamp": "2026-10-04T11:51:04Z",
+      "file_name": "28-hex_value.jpg",
+      "original_metadata": {
+        "has_exif": true,
+        "exif_count": 42,
+        "has_gps": false,
+        "gps_coords": null,
+        "has_xmp": true,
+        "has_icc_profile": false,
+        "has_c2pa": false,
+        "has_makernote": true,
+        "ai_signature": null
+      },
+      "evaluation": {
+        "lossless_mode": {
+          "residual_exif_count": 1,
+          "residual_gps": false,
+          "psnr_db": Infinity,
+          "ssim": 1.0,
+          "is_bit_exact": true
+        },
+        "lossy_mode": {
+          "residual_exif_count": 0,
+          "residual_gps": false,
+          "psnr_db": 40.16,
+          "ssim": 0.9992,
+          "is_bit_exact": false
+        }
+      },
+      "benchmark_execution_ms": 1427.44
+    },
+    {
+      "timestamp": "2026-10-04T11:51:07Z",
+      "file_name": "30-type_error.jpg",
+      "original_metadata": {
+        "has_exif": true,
+        "exif_count": 8,
+        "has_gps": false,
+        "gps_coords": null,
+        "has_xmp": true,
+        "has_icc_profile": false,
+        "has_c2pa": false,
+        "has_makernote": false,
+        "ai_signature": null
+      },
+      "evaluation": {
+        "lossless_mode": {
+          "residual_exif_count": 0,
+          "residual_gps": false,
+          "psnr_db": Infinity,
+          "ssim": 1.0,
+          "is_bit_exact": true
+        },
+        "lossy_mode": {
+          "residual_exif_count": 0,
+          "residual_gps": false,
+          "psnr_db": 55.73,
+          "ssim": 1.0,
+          "is_bit_exact": false
+        }
+      },
+      "benchmark_execution_ms": 2900.82
+    },
+    {
+      "timestamp": "2026-10-04T11:51:08Z",
+      "file_name": "33-type_error.jpg",
+      "original_metadata": {
+        "has_exif": true,
+        "exif_count": 45,
+        "has_gps": false,
+        "gps_coords": null,
+        "has_xmp": true,
+        "has_icc_profile": true,
+        "has_c2pa": false,
+        "has_makernote": false,
+        "ai_signature": null
+      },
+      "evaluation": {
+        "lossless_mode": {
+          "residual_exif_count": 1,
+          "residual_gps": false,
+          "psnr_db": Infinity,
+          "ssim": 1.0,
+          "is_bit_exact": true
+        },
+        "lossy_mode": {
+          "residual_exif_count": 0,
+          "residual_gps": false,
+          "psnr_db": 47.54,
+          "ssim": 0.9999,
+          "is_bit_exact": false
+        }
+      },
+      "benchmark_execution_ms": 1271.42
+    },
+    {
+      "timestamp": "2026-10-04T11:51:09Z",
+      "file_name": "35-empty.jpg",
+      "original_metadata": {
+        "has_exif": true,
+        "exif_count": 42,
+        "has_gps": false,
+        "gps_coords": null,
+        "has_xmp": false,
+        "has_icc_profile": false,
+        "has_c2pa": false,
+        "has_makernote": true,
+        "ai_signature": null
+      },
+      "evaluation": {
+        "lossless_mode": {
+          "residual_exif_count": 0,
+          "residual_gps": false,
+          "psnr_db": Infinity,
+          "ssim": 1.0,
+          "is_bit_exact": true
+        },
+        "lossy_mode": {
+          "residual_exif_count": 0,
+          "residual_gps": false,
+          "psnr_db": 39.65,
+          "ssim": 0.9994,
+          "is_bit_exact": false
+        }
+      },
+      "benchmark_execution_ms": 1167.91
+    },
+    {
+      "timestamp": "2026-10-04T11:51:10Z",
+      "file_name": "36-memory_error.jpg",
+      "original_metadata": {
+        "has_exif": true,
+        "exif_count": 42,
+        "has_gps": false,
+        "gps_coords": null,
+        "has_xmp": false,
+        "has_icc_profile": false,
+        "has_c2pa": false,
+        "has_makernote": true,
+        "ai_signature": null
+      },
+      "evaluation": {
+        "lossless_mode": {
+          "residual_exif_count": 0,
+          "residual_gps": false,
+          "psnr_db": Infinity,
+          "ssim": 1.0,
+          "is_bit_exact": true
+        },
+        "lossy_mode": {
+          "residual_exif_count": 0,
+          "residual_gps": false,
+          "psnr_db": 35.54,
+          "ssim": 0.9974,
+          "is_bit_exact": false
+        }
+      },
+      "benchmark_execution_ms": 735.14
+    },
+    {
+      "timestamp": "2026-10-04T11:51:14Z",
+      "file_name": "42_IndexError.jpg",
+      "original_metadata": {
+        "has_exif": true,
+        "exif_count": 45,
+        "has_gps": false,
+        "gps_coords": null,
+        "has_xmp": false,
+        "has_icc_profile": false,
+        "has_c2pa": false,
+        "has_makernote": true,
+        "ai_signature": null
+      },
+      "evaluation": {
+        "lossless_mode": {
+          "residual_exif_count": 0,
+          "residual_gps": false,
+          "psnr_db": Infinity,
+          "ssim": 1.0,
+          "is_bit_exact": true
+        },
+        "lossy_mode": {
+          "residual_exif_count": 0,
+          "residual_gps": false,
+          "psnr_db": 39.88,
+          "ssim": 0.9995,
+          "is_bit_exact": false
+        }
+      },
+      "benchmark_execution_ms": 4064.19
+    },
+    {
+      "timestamp": "2026-10-04T11:51:15Z",
+      "file_name": "45-gps_ifd.jpg",
+      "original_metadata": {
+        "has_exif": true,
+        "exif_count": 27,
+        "has_gps": false,
+        "gps_coords": null,
+        "has_xmp": false,
+        "has_icc_profile": false,
+        "has_c2pa": false,
+        "has_makernote": true,
+        "ai_signature": null
+      },
+      "evaluation": {
+        "lossless_mode": {
+          "residual_exif_count": 0,
+          "residual_gps": false,
+          "psnr_db": Infinity,
+          "ssim": 1.0,
+          "is_bit_exact": true
+        },
+        "lossy_mode": {
+          "residual_exif_count": 0,
+          "residual_gps": false,
+          "psnr_db": 39.89,
+          "ssim": 0.9996,
+          "is_bit_exact": false
+        }
+      },
+      "benchmark_execution_ms": 458.68
+    },
+    {
+      "timestamp": "2026-10-04T11:51:22Z",
+      "file_name": "46_UnicodeEncodeError.jpg",
+      "original_metadata": {
+        "has_exif": true,
+        "exif_count": 38,
+        "has_gps": true,
+        "gps_coords": null,
+        "has_xmp": true,
+        "has_icc_profile": true,
+        "has_c2pa": false,
+        "has_makernote": false,
+        "ai_signature": null
+      },
+      "evaluation": {
+        "lossless_mode": {
+          "residual_exif_count": 0,
+          "residual_gps": false,
+          "psnr_db": Infinity,
+          "ssim": 1.0,
+          "is_bit_exact": true
+        },
+        "lossy_mode": {
+          "residual_exif_count": 0,
+          "residual_gps": false,
+          "psnr_db": 30.68,
+          "ssim": 0.9771,
+          "is_bit_exact": false
+        }
+      },
+      "benchmark_execution_ms": 6839.88
+    },
+    {
+      "timestamp": "2026-10-04T11:51:24Z",
+      "file_name": "67-0_length_string.jpg",
+      "original_metadata": {
+        "has_exif": true,
+        "exif_count": 12,
+        "has_gps": true,
+        "gps_coords": [
+          51.025,
+          7.591944444444444
+        ],
+        "has_xmp": true,
+        "has_icc_profile": false,
+        "has_c2pa": false,
+        "has_makernote": false,
+        "ai_signature": null
+      },
+      "evaluation": {
+        "lossless_mode": {
+          "residual_exif_count": 0,
+          "residual_gps": false,
+          "psnr_db": Infinity,
+          "ssim": 1.0,
+          "is_bit_exact": true
+        },
+        "lossy_mode": {
+          "residual_exif_count": 0,
+          "residual_gps": false,
+          "psnr_db": Infinity,
+          "ssim": 1.0,
+          "is_bit_exact": true
+        }
+      },
+      "benchmark_execution_ms": 2369.04
+    },
+    {
+      "timestamp": "2026-10-04T11:51:25Z",
+      "file_name": "87_OSError.jpg",
+      "original_metadata": {
+        "has_exif": true,
+        "exif_count": 56,
+        "has_gps": true,
+        "gps_coords": [
+          43.78559443333333,
+          11.234619433333334
+        ],
+        "has_xmp": true,
+        "has_icc_profile": false,
+        "has_c2pa": false,
+        "has_makernote": true,
+        "ai_signature": null
+      },
+      "evaluation": {
+        "lossless_mode": {
+          "residual_exif_count": 0,
+          "residual_gps": false,
+          "psnr_db": Infinity,
+          "ssim": 1.0,
+          "is_bit_exact": true
+        },
+        "lossy_mode": {
+          "residual_exif_count": 0,
+          "residual_gps": false,
+          "psnr_db": 40.55,
+          "ssim": 0.9994,
+          "is_bit_exact": false
+        }
+      },
+      "benchmark_execution_ms": 1179.08
+    },
+    {
+      "timestamp": "2026-10-04T11:51:25Z",
+      "file_name": "BlueSquare.jpg",
+      "original_metadata": {
+        "has_exif": true,
+        "exif_count": 11,
+        "has_gps": false,
+        "gps_coords": null,
+        "has_xmp": true,
+        "has_icc_profile": true,
+        "has_c2pa": false,
+        "has_makernote": false,
+        "ai_signature": null
+      },
+      "evaluation": {
+        "lossless_mode": {
+          "residual_exif_count": 1,
+          "residual_gps": false,
+          "psnr_db": Infinity,
+          "ssim": 1.0,
+          "is_bit_exact": true
+        },
+        "lossy_mode": {
+          "residual_exif_count": 0,
+          "residual_gps": false,
+          "psnr_db": 44.59,
+          "ssim": 1.0,
+          "is_bit_exact": false
+        }
+      },
+      "benchmark_execution_ms": 13.47
+    },
+    {
+      "timestamp": "2026-10-04T11:51:25Z",
+      "file_name": "no_exif.jpg",
+      "original_metadata": {
+        "has_exif": true,
+        "exif_count": 24,
+        "has_gps": false,
+        "gps_coords": null,
+        "has_xmp": true,
+        "has_icc_profile": true,
+        "has_c2pa": false,
+        "has_makernote": false,
+        "ai_signature": null
+      },
+      "evaluation": {
+        "lossless_mode": {
+          "residual_exif_count": 0,
+          "residual_gps": false,
+          "psnr_db": Infinity,
+          "ssim": 1.0,
+          "is_bit_exact": true
+        },
+        "lossy_mode": {
+          "residual_exif_count": 0,
+          "residual_gps": false,
+          "psnr_db": 32.74,
+          "ssim": 0.998,
+          "is_bit_exact": false
+        }
+      },
+      "benchmark_execution_ms": 49.72
+    },
+    {
+      "timestamp": "2026-10-04T11:51:25Z",
+      "file_name": "32-lens_data.jpeg",
+      "original_metadata": {
+        "has_exif": true,
+        "exif_count": 53,
+        "has_gps": true,
+        "gps_coords": null,
+        "has_xmp": true,
+        "has_icc_profile": false,
+        "has_c2pa": false,
+        "has_makernote": true,
+        "ai_signature": null
+      },
+      "evaluation": {
+        "lossless_mode": {
+          "residual_exif_count": 0,
+          "residual_gps": false,
+          "psnr_db": Infinity,
+          "ssim": 1.0,
+          "is_bit_exact": true
+        },
+        "lossy_mode": {
+          "residual_exif_count": 0,
+          "residual_gps": false,
+          "psnr_db": 30.43,
+          "ssim": 0.9942,
+          "is_bit_exact": false
+        }
+      },
+      "benchmark_execution_ms": 29.71
+    }
+  ]
+}
